@@ -37,17 +37,19 @@ for j in range(i_big):
             l_rev.append(l1[j])
 	
 
+
 #INTENDED OUTPUT = a9b8--i0nmlkj
-l_mix = []
+l_1rev = []
+
 for j in range(i_big):
     if j < i:
-        l_mix.append(l1[j])
-        l_mix.append(l2[i-j])
-    else:
-        l_mix.append(l1[len(l1)-j])
-    
+        l_1rev.append(l1[j])
+        l_1rev.append(l2[i-1-j])  
+for k in range(i_big-i):
+    l_1rev.append(l1[i_big-1-k])
+   
 
-#even index pick even item of first list and odd 
+
 
 for j in range(len(l)-1, 0,  -1):
     print(l[j])
