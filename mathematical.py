@@ -9,15 +9,15 @@ for number in range(1, n+1):
             l.append(i)
 
 
-#if a number is prime, incomplete
-n, l = 7, []
-for i in range(2,n):
-    if n%i==0 or i<n:
+#if a number is prime
+n = 14
+i = 2
+while i!=n-1:
+    if n%i ==0:
         break
-    else:
-        print(n, i)
-        l.append(n) #problem is loop outputs correct at i =2 
-        break
+    i +=1
+    if i == n-1:
+        print(f"{n} is a prime number")
 
 #hcf 
 a, b = 32, 128

@@ -1,15 +1,12 @@
-#using swap, incomplete yet
-x, y = 0,1
-def fibb(x,y):
+#using swap
+x, y, l = 0,1, [0]
+def fib(x,y):
     x, y = y, x+y
     return x,y
 
-l1 = [0]
-for i in range(19):
-    #print(x,y)
-    x,y = fibb(x,y)
-    #print(x,y)
-    l1.append(y)
+for i in range(n-1):
+    x, y = fib(x,y)
+    l.append(y)
 
 #using recursion without swap
 def fib(n):
