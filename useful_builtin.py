@@ -8,3 +8,5 @@ fruits = ["banana", "apple", "mango", "orange", "malta"]
 for j in enumerate(fruits, 1):
     print(j)
     
+#sorted, reversed cant be used for dictionaries
+#keyworded arguments

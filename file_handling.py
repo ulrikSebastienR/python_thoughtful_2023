@@ -1,38 +1,42 @@
-#count number of lines in a file
-f = open("3.py")
+#you need to close a file or open with WITH, "w" creates a file or overwrites existing, "a" appends existing file
+with open("blank.tex", "w") as f:
+    f.write("written through python") #no need to close explicitly
 
-count = len(f.readlines())
+#you need to open file every time else f.readlines would be an empty list
+#print specified number of characters
+f = open("openquestions.tex")
+print(f.readline(15))
+print("-----")
 f.close()
-# OR
-f = open("3.py")
-i = 0
+
+#count number of lines in a file
+f = open("openquestions.tex")
+i = len(f.readlines())
+#or
+f = open("openquestions.tex")
+j = 0
+for each in f:
+    j += 1
+f.close()
+
+#get all contents in a list
+f = open("openquestions.tex")
+data = f.readlines()
+print(data)
+print("-----")
+
+#print each line with line number
+f = open("openquestions.tex")
+for i,line in enumerate(f.readlines(),1):
+    print(i,line)
+print("------")
+    
+#print each word
+f = open("openquestions.tex")
 for line in f.readlines():
     print(line)
-    i += 1
-f.close()
+    for word in line.split():
+        print(word)
+    print("-")
 
-#print lines with line numbers
-f = open("3.py")
-for count, line in enumerate(f, 1):
-    print(count," ", line)
-f.close()
-
-
-
-#delete particular lines of a file with python
-
-f = open('3.py', "r")
-for line in f.readlines(-1):
-    print(line)
-##    f.writelines("a")
-##    print(line)
-    #f.close()
-
-
-
-#using with itself closes the file preventing further access
-with open("openquestions.tex") as f1:
-    pass #no need to close
-
-
-
+#still left delete a particular line or arrange words as per your choice or put space at a particular point in a file

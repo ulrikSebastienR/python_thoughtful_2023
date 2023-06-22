@@ -39,6 +39,17 @@ for i,item in enumerate(l):
         print(item)
         i+=1
         break
+
+print("SOME EXAMPLES ON WHILE")
+
+print("SORT A LIST USING WHILE")
+l1 = [31, 23, 83, 12, 86, 97, 34, 18]
+l_s = []
+while len(l1)!=0:
+    l_s.append(min(l1))
+    l1.remove(min(l1))
+print(l_s)
+
         
 
 
