@@ -1,2 +1,1 @@
-#prime numbers
 

@@ -1,16 +1,28 @@
-#prime numbers in a range, incomplete
-l,n = [],13
-
-for number in range(1, n+1):
-    for i in range(2, number+1):
-        if number%i == 0 and i < number:
-            continue         
+#prime numbers in a range using for loop, 1 is not considered a prime number
+l, n = [2], 23
+for number in range(1,n+1):
+    for i in range(2, n):
+        if number%i == 0:
+            break
         else:
-            l.append(i)
+            pass
+        if i == number-1:
+            l.append(number)
 
+#prime numbers in a range using while loop, while loop cant detect 3 as for 3, i==2
+l1, n = [2,3], 234
+for number in range(1,n+1):
+    i =2
+    while i<number:
+        if number%i == 0:
+            break
+        else:
+            i+= 1
+        if i == number-1:
+            l1.append(number) #leaving 3 currently
 
-#if a number is prime
-n = 14
+#if a number is prime using while loop
+n = 13
 i = 2
 while i!=n-1:
     if n%i ==0:
@@ -18,6 +30,15 @@ while i!=n-1:
     i +=1
     if i == n-1:
         print(f"{n} is a prime number")
+
+#if a number is prime using for loop
+for i in range(2,n):
+    if n%i ==0:
+        break
+    else:
+        pass
+    if i == n-1:
+        print(f"{n} is a prime number by for loop")
 
 #hcf 
 a, b = 32, 128
