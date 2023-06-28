@@ -1,3 +1,54 @@
+#prime factorization
+#find all prime numbers in a range using flag, doesnt include 2 
+n, prime_numbers = 2356, [2]
+for number in range(2, n):
+    flag = False
+    for i in range(2,number):
+        if number%i == 0:
+            break
+        else:
+            flag = True
+        if i == number-1: #this is done to ensure loop runs to the end otherwise loop will output prime number first time remainder isnt zero
+            prime_numbers.append(number)
+
+#prime factorization without recursion
+pf = [] #we are referring as quotient the number whose prime factors we are supposed to find like 6 or 15 or 120 etc
+def factors(quotient):
+    while quotient !=1:
+        for number in prime_numbers:
+            if quotient%number ==0:
+                break
+        pf.append(number)
+        quotient = quotient//number
+    return pf
+x = factors(6) #print(pf)
+
+#prime factorization with recursion
+pfr =  []
+def factorsr(n):
+    if n == 1:
+        return pfr
+    else:
+        for number in prime_numbers:
+            if n%number==0:
+                pfr.append(number)
+                n = n//number
+        return factorsr(n)
+y = factorsr(60)
+    
+        
+
+#using flag, prime number, better method includes 2 as well
+n, flag = 2, False
+for i in range(2, n):
+    if n%i == 0:
+        break
+    else:
+        flag = True       
+    if i == n-1:
+        print(f"{n} is a prime number by flag")
+
+
 #prime numbers in a range using for loop, 1 is not considered a prime number
 l, n = [2], 23
 for number in range(1,n+1):
