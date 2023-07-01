@@ -1,11 +1,19 @@
-
 #in all list methods, you can not do l= l.remove(i) as l will be none type now
+#extend in lists
+a = [[1,-2,3,-4],[-10,21,-32,40]]
+#count len(a)
+a1, a2 = [i for i in a]
+a1.extend(i for i in a2)
+
+
 #l1 = l2
 numbers = [i for i in range(20)]
 even = [i for i in range(20) if i%2 == 0]
 
 #subtract
 odd = [i for i in numbers if i not in even]
+#see if a list is subset of another list
+x = all(even) in numbers #outputs True if x is subset of numbers
 
 # merge to make exactly identical to original list
 new_numbers = []

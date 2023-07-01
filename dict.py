@@ -6,6 +6,7 @@ third = [number for number in range(100,200,10)]
 #define via one liner list comprehension
 dx = {k:v for k, v in zip(first, second)}
 
+
 #define through for loop
 d, d2 = {}, dict()
 for k,v in zip(first, second):
@@ -20,6 +21,14 @@ d1 = dict(zip(third, first))
 #merge
 z = {**d, **d1}
 #merge without using ** #zip zips only keys, cant add dict.items or dict
+#https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-in-python?rq=1
+#z1 = d|d1 #guess depends on python's version, not working currently
+z2 = {k:v for chaque in (d,d1) for k,v in chaque.items()}
+def dic_merge(dict1,dict2):
+    y = dict2.copy()
+    dict1.update(y)
+    return dict1
+z3 = dic_merge(d,d1)
 
 # another example
 import datetime

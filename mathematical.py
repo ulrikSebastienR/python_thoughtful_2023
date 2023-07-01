@@ -1,7 +1,45 @@
+#greatest/shortest of given numbers
+class Great:
+    ''' Class to calculate greatest of given numbers in a list'''
+    def __init__(self, user_list):
+        self.user_list = user_list
+
+    def greatest(self):
+        ''' function calculates greatest of numbers given in a list'''
+        greatest = self.user_list[0]
+        for item in self.user_list:
+            if item > greatest:
+                greatest = item
+        return greatest 
+g = Great([3,45, 95, 100, 204, 32, 12, 21])
+
+
+
+#reverse an integer
+n,l = 2345, []
+quotient = n
+while quotient!=0:
+    r = quotient%10
+    l.append(r)
+    quotient = quotient//10
+    continue
+reverse_n = l[0]*1000+l[1]*100+l[2]*10+l[3] #or
+reverse = int("".join(str(i) for i in l))
+
 #prime factorization
+#need to test in detail, #this is right but why it never worked le semain predecent
+upper, l10 = 2399, [2]
+for number in range(2,upper+1):
+    for i in range(2,number):
+        if number%i ==0:
+            break
+        else:
+            if number%i !=0 and i==number-1:
+                l10.append(number)
+        
 #find all prime numbers in a range using flag, doesnt include 2 
-n, prime_numbers = 2356, [2]
-for number in range(2, n):
+n, prime_numbers = 2399, [2]
+for number in range(2, n+1):
     flag = False
     for i in range(2,number):
         if number%i == 0:
@@ -99,6 +137,8 @@ hcf = 0
 for number in range(1,smaller+1):
     if a%number == 0 and b%number ==0 :
         hcf = number
+#or one liner
+hcf1 = max([number for number in range(1,smaller+1) if a%number==0 and b%number==0])
 
 #lcm
 a, b = 3,5
@@ -109,5 +149,7 @@ for number in range(larger, larger*1000000):
     if number%a == 0 and number%b == 0:
         lcm = number
         break
+#or one liner
+lcm1 = min([number for number in range(larger,10000000) if number%a==0 and number%b])
 
 
