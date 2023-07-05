@@ -5,8 +5,8 @@ for char in l1:
     for char1 in l1:
         if char == char1:
             i += 1
-            if i >1:
-                print(char, i)
+    if i >1:
+        print(char, i) #print character only once pending
 
 
 l2 = [1]*len(l1)
