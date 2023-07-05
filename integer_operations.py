@@ -1,4 +1,20 @@
 #all extra trials such as without recursion and classes for the same function are at the end of this file
+def exponent(number, power):
+    "calculates value of a number when raised by an exponent"
+    product = 1
+    for _ in range(power):
+        product = number*product
+    return product
+
+def greatest(l):
+    " finds greatest of given number"
+    greatest = l[0]
+    for item in l:
+        if item > greatest:
+            greatest = item
+    return greatest
+        
+
 def factorial(n):
     if n <= 0:
         return 0
@@ -33,6 +49,18 @@ def factorial_for(n):
     for i in range(n,1,-1):
         factf = i*factf
     return factf
+
+x, y, l, n = 0,1, [0,1], 0
+def fibb_while(x, y, n):
+    x, y = y, x+y
+    return x, y
+
+while n!= 6-2:
+    x, y = fibb_while(x,y,n)
+    n+=1
+    l.append(y)
+
+    
 
 #classes for functions already wrote
 

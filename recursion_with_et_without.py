@@ -13,7 +13,7 @@ def fib(n):
 l = []
 for i in range(19):
     l.append(fib(i))
-#fibbonaci without recursion
+#fibbonaci without recursion using for
 x, y, fibbl, n = 0,1, [0,1], 5
 def fibb(x,y):
     x, y = y, x+y
@@ -21,7 +21,16 @@ def fibb(x,y):
 for i in range(0,n-2):
     x, y = fibb(x,y)
     fibbl.append(y)
-    
+
+#fibbonaci without recursion using while 
+i, x, y, fibbw = 0,0,1, [0,1] #to provide iterator value to while to stop running it infinitely
+def fibb_w(x,y):
+    x, y = y, x+y
+    return x,y
+while i != n-2:
+    x, y = fibb_w(x,y)
+    i+=1
+    fibbw.append(y)
 
 #factorial without recursion
 n, product = 3, 1

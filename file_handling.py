@@ -5,9 +5,14 @@ with open("blank.tex", "w") as f:
 #you need to open file every time else f.readlines would be an empty list
 #print specified number of characters
 f = open("openquestions.tex")
-print(f.readline(15))
-print("-----")
+chars15 = f.readline(15)
 f.close()
+
+#get all words
+f = open("pour_reading.tex")
+x = f.read(-1)
+words = x.split()
+
 
 #count number of lines in a file
 f = open("openquestions.tex")
@@ -22,8 +27,7 @@ f.close()
 #get all contents in a list
 f = open("openquestions.tex")
 data = f.readlines()
-print(data)
-print("-----")
+
 
 #print each line with line number
 f = open("openquestions.tex")
@@ -33,10 +37,10 @@ print("------")
     
 #print each word
 f = open("openquestions.tex")
+lines = words1 = []
 for line in f.readlines():
-    print(line)
+    lines.append(line)
     for word in line.split():
-        print(word)
-    print("-")
-
+        words1.append(word)
+    
 #still left delete a particular line or arrange words as per your choice or put space at a particular point in a file

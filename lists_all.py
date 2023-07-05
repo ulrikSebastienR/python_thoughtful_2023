@@ -1,9 +1,20 @@
 #in all list methods, you can not do l= l.remove(i) as l will be none type now
+# Program examples are at the end of this file
+#convert list to dictionary
+def list_to_dict(l):
+    d = dict(enumerate(l))
+    return d
+#making a nested list
+list_nested = [[1]]*6
+
 #extend in lists
 a = [[1,-2,3,-4],[-10,21,-32,40]]
-#count len(a)
 a1, a2 = [i for i in a]
 a1.extend(i for i in a2)
+#making new reversed list by extend or you can do l.reverse
+l_string = [char for char in "madamoiselle"]
+lreversed = []
+lreversed.extend(l_string[len(l_string)-1-i] for i in range(len(l_string)))
 
 
 #l1 = l2
@@ -78,8 +89,20 @@ for j in range(i_big):
 for k in range(i_big-i):
     l_1rev.append(l1[i_big-1-k])
    
+#look at difference in output of these two programs
+def program1(n):
+    for i in range(5):
+        l = [char for char in "abcde"]
+        l.remove(l[i])
+        #print(l[i])
+    return l
 
-
+def program2(n):
+    for i in range(5):
+        l = [char for char in "abcde"]
+        print(l[i])
+        l.remove(l[i])
+    return l
 
 for j in range(len(l)-1, 0,  -1):
     print(l[j])
