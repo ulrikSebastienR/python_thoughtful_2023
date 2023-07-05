@@ -10,5 +10,6 @@ for sublist in l:
      r.remove(number)
      #break gives output [[0, 5], [0, 5], [0, 5], [0, 5], [0, 5], [0, 5]]
      #continue or without continue gives [[0, 5, 1, 4, 2, 3], [0, 5, 1, 4, 2, 3], [0, 5, 1, 4, 2, 3], [0, 5, 1, 4, 2, 3], [0, 5, 1, 4, 2, 3], [0, 5, 1, 4, 2, 3]]
-     
+if r == []:
+     break
      
