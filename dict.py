@@ -1,4 +1,6 @@
 de = {k:v for k,v in enumerate(range(0,50,10))}
+#append to dictionary
+de.update({"aa":10000})
 # merge two dictionaries
 first = [char for char in "abcdefghi"]
 second = [number for number in range(10)]
