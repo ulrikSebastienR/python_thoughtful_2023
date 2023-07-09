@@ -1,3 +1,5 @@
+alphabets = [char for char in "abcdefghijklmnopqrstuvwxyz"]
+numbers = [number for number in range(1,27)]
 de = {k:v for k,v in enumerate(range(0,50,10))}
 #append to dictionary
 de.update({"aa":10000})
@@ -7,6 +9,26 @@ second = [number for number in range(10)]
 third = [number for number in range(100,200,10)]
 #define via one liner list comprehension
 dx = {k:v for k, v in zip(first, second)}
+
+def repetitions_arrange_alphabetically(s):
+    "filtering dictionaries based on key and values"
+    global alphabets, numbers
+    d, valuesof_s, arranged = {}, [], []
+    lookuptable = dict(zip(alphabets, numbers))
+    for char in s:
+        for k, v in lookuptable.items():
+            if char == k:
+                d.update({char:v}) #this is not actually needed was added to learn dictionaries
+                valuesof_s.append(v)
+    valuesof_s.sort()
+    for item in valuesof_s:
+        for k,v in lookuptable.items():
+            if item == v:
+                arranged.append(k)
+    answer = "".join(arranged)
+
+
+
 
 
 #define through for loop

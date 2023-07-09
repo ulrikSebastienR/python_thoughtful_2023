@@ -1,5 +1,52 @@
 #in all list methods, you can not do l= l.remove(i) as l will be none type now
 # Program examples are at the end of this file
+#make multiple lists in one go
+l = [[].append(char) for char in "abcde"] #wont work as [] is a none type
+l1 = [[char] for char in "abcde"] #works
+l2 = [[0]]*5 #works
+l3 = [[]] *5 #works however python treats all these blank lists differently IS PENDING
+s = "madamoiselle"
+alphabets = [char for char in "abcdefghijklmnopqrstuvwxyz"]
+numbers = [number for number in range(1,27)]
+                    
+def arrange_alphabetically_no_repetition(s):
+    "arrange a string or list alphabetically without repetitions"
+    global alphabets, numbers
+    lookuptable = dict(zip(alphabets, numbers))
+    d, ans, v_arranged = {}, {}, []
+    for char in s:
+        for k,v in lookuptable.items():
+            if char == k:
+                d.update({char:v})
+                v_arranged.append(v)
+    v_arranged.sort()
+    for item in v_arranged:
+        for k,v in d.items():
+            if item == v:
+                ans.update({k:item})
+    answer = "".join(list(ans))
+        
+    return d, v_arranged, answer
+
+def repetitions_arrange_alphabetically(s):
+    "arrange a list or string alphabetically with repetitions allowed"
+    global alphabets, numbers
+    d, valuesof_s, arranged = {}, [], []
+    lookuptable = dict(zip(alphabets, numbers))
+    for char in s:
+        for k, v in lookuptable.items():
+            if char == k:
+                d.update({char:v}) #this is not actually needed was added to learn dictionaries
+                valuesof_s.append(v)
+    valuesof_s.sort()
+    for item in valuesof_s:
+        for k,v in lookuptable.items():
+            if item == v:
+                arranged.append(k)
+    answer = "".join(arranged)
+    
+    return d, valuesof_s,arranged, answer
+
 #convert list to dictionary
 def list_to_dict(l):
     d = dict(enumerate(l))

@@ -2,9 +2,10 @@
 #coudnt do with sublist nested for loops
 #l = [[].append(char) for char in "abcde"] #wont work
 n = 5
-l = [[]]*int(n/2)
+l = [[]]*int(n/2) #improper output because lists initialized this way all point to same object
 p = [[char] for char in "abcde"]
-q = [[0]]*int(n/2)
+q = [[0]]*int(n/2) #problem is they all point to the same object
+t = [[9]]*int(n/2) #lists initialized this way all point to same object and hence no proper output
 r = [_ for _ in range(1,int(n/2+1))]
 s = [char for char in "abcde"]
 
@@ -32,14 +33,16 @@ d.update({"aa":1000})
 
 for i in range(int(n/2)):
     p[i].append(r[i])
-    p[i].append(n-r[i])
+    p[i].append(n-r[i]) #output p = [['a', 1, 4], ['b', 2, 3], ['c'], ['d'], ['e']]
     q[i].append(r[i])
-    q[i].append(n-r[i])
+    q[i].append(n-r[i]) #output q =  [[0, 1, 4, 2, 3], [0, 1, 4, 2, 3]]   
     l[i].append(r[i])
-    l[i].append(n-r[i])
-#output p = [['a', 1, 4], ['b', 2, 3], ['c'], ['d'], ['e']]
-#output l = [[1, 4, 2, 3], [1, 4, 2, 3]]
-#output q =  [[0, 1, 4, 2, 3], [0, 1, 4, 2, 3]]   
+    l[i].append(n-r[i]) #output l = [[1, 4, 2, 3], [1, 4, 2, 3]]
+    t[i].append(r[i])
+    t[i].append(n-r[i]) # [[9, 1, 4, 2, 3], [9, 1, 4, 2, 3]]
+
+
+
     
     
 
