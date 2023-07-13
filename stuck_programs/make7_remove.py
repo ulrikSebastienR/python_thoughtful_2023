@@ -1,3 +1,5 @@
+#import pdb
+#pdb.set_trace()
 class Make7:
    # n = 7 class variable
     "find all numbers that when added make 7" 
@@ -10,6 +12,7 @@ class Make7:
         print(self.r)
         for sublist in self.l:
             print(f"1{sublist}, {self.r} at start of sublist loop")
+            #breakpoint()
             for number in self.r:
                 print(f"2{self.r} and number is {number} at start of number loop")
                 sublist.append(number)

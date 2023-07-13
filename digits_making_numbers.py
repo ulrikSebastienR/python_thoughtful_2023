@@ -1,3 +1,40 @@
+#for a number in list do, find all combinations that make that number
+class MakeNumber:
+   
+    def __init__(self, given = [number for number in range(5)], d={}):
+        self.given = given
+        self.l = [[char] for char in "abcdefgh"]
+        self.d = {}
+
+    def make(self):
+        "#for a number in a given list, find all combinations that make that number"
+        for n in self.given:
+            #n = 9
+            from_l = [number for number in range(int(n/2+1))]
+            for i in range(len(from_l)):
+                self.l[i].append(from_l[i])
+                self.l[i].append(n-from_l[i])
+
+            """for sublist in self.l:
+                sublist.pop(0)
+                if sublist == []:
+                    self.l.remove(sublist)"""
+            print(f"for {n} combinations are {self.l}")
+            self.d.update({n:self.l})
+
+        return self.d
+
+x = MakeNumber()
+
+"""for 0 combinations are [['a', 0, 0], ['b'], ['c'], ['d'], ['e'], ['f'], ['g'], ['h']]
+for 1 combinations are [['a', 0, 0, 0, 1], ['b'], ['c'], ['d'], ['e'], ['f'], ['g'], ['h']]
+for 2 combinations are [['a', 0, 0, 0, 1, 0, 2], ['b', 1, 1], ['c'], ['d'], ['e'], ['f'], ['g'], ['h']]
+for 3 combinations are [['a', 0, 0, 0, 1, 0, 2, 0, 3], ['b', 1, 1, 1, 2], ['c'], ['d'], ['e'], ['f'], ['g'], ['h']]
+for 4 combinations are [['a', 0, 0, 0, 1, 0, 2, 0, 3, 0, 4], ['b', 1, 1, 1, 2, 1, 3], ['c', 2, 2], ['d'], ['e'], ['f'], ['g'], ['h']]
+{0: [['a', 0, 0, 0, 1, 0, 2, 0, 3, 0, 4], ['b', 1, 1, 1, 2, 1, 3], ['c', 2, 2], ['d'], ['e'], ['f'], ['g'], ['h']], 1: [['a', 0, 0, 0, 1, 0, 2, 0, 3, 0, 4], ['b', 1, 1, 1, 2, 1, 3], ['c', 2, 2], ['d'], ['e'], ['f'], ['g'], ['h']], 2: [['a', 0, 0, 0, 1, 0, 2, 0, 3, 0, 4], ['b', 1, 1, 1, 2, 1, 3], ['c', 2, 2], ['d'], ['e'], ['f'], ['g'], ['h']], 3: [['a', 0, 0, 0, 1, 0, 2, 0, 3, 0, 4], ['b', 1, 1, 1, 2, 1, 3], ['c', 2, 2], ['d'], ['e'], ['f'], ['g'], ['h']], 4: [['a', 0, 0, 0, 1, 0, 2, 0, 3, 0, 4], ['b', 1, 1, 1, 2, 1, 3], ['c', 2, 2], ['d'], ['e'], ['f'], ['g'], ['h']]}"""
+
+
+
 #intended output was to find combinations that can make 5 [[1,4],[2,3]]
 #coudnt do with sublist nested for loops
 #l = [[].append(char) for char in "abcde"] #wont work
