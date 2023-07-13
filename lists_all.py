@@ -3,8 +3,19 @@
 #make multiple lists in one go
 l = [[].append(char) for char in "abcde"] #wont work as [] is a none type
 l1 = [[char] for char in "abcde"] #works
-l2 = [[0]]*5 #works
+l2 = [[0]]*5 #works however all sublists would point to the same object
 l3 = [[]] *5 #works however python treats all these blank lists differently IS PENDING
+
+def pop_vs_remove():
+    "#not working currently"
+    l = [[char] for char in "abcdef"]
+    for sublist in l:
+        sublist.remove(char for char in "abcde")
+    return l
+    
+    
+    
+
 s = "madamoiselle"
 alphabets = [char for char in "abcdefghijklmnopqrstuvwxyz"]
 numbers = [number for number in range(1,27)]
@@ -46,6 +57,15 @@ def repetitions_arrange_alphabetically(s):
     answer = "".join(arranged)
     
     return d, valuesof_s,arranged, answer
+
+def list_methods():
+    "list methods"
+    l = [[char, 1,5,6,5,6] for char in "abcde"]
+    for sublist in l:
+        sublist.pop(0) #pops item at the index provided, default 0
+        sublist.remove(5) #removes first appearance of the value
+    return l
+    
 
 #convert list to dictionary
 def list_to_dict(l):
