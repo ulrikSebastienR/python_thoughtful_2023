@@ -1,30 +1,137 @@
 #for a number in list do, find all combinations that make that number
-class MakeNumber:
-   
-    def __init__(self, given = [number for number in range(5)], d={}):
-        self.given = given
-        self.l = [[char] for char in "abcdefgh"]
-        self.d = {}
 
-    def make(self):
-        "#for a number in a given list, find all combinations that make that number"
-        for n in self.given:
-            #n = 9
-            from_l = [number for number in range(int(n/2+1))]
-            for i in range(len(from_l)):
-                self.l[i].append(from_l[i])
-                self.l[i].append(n-from_l[i])
+def combinations_pour_a_list(user_list = [number for number in range(10)]):
+    d = {}
+    for number in user_list:
+        digi = [_ for _ in range(int(number/2+1))]
+        insidel = [[char] for char in "abcdefgh"]
+        for i in range(len(digi)):
+                       insidel[i].append(digi[i])
+                       insidel[i].append(number-digi[i])
+        for sublist in insidel:
+            sublist.pop(0)
+        final = [x for x in insidel if x]
+        d.update({number:final})
+    return d
 
-            """for sublist in self.l:
-                sublist.pop(0)
-                if sublist == []:
-                    self.l.remove(sublist)"""
-            print(f"for {n} combinations are {self.l}")
-            self.d.update({n:self.l})
+class Make7:
+   # n = 7 class variable
+    "find all numbers that when added make 7" 
+    def __init__(self,n=7,l=[[char] for char in "abcde"]): #no need to pass any instance variables if you have initialized them in class definition, these are positional arguments with default values
+        self.n = n
+        self.l = l
+        self.r = [number for number in range(int(self.n/2+1))]
 
-        return self.d
+    def instance_variables(self):
+        return self.l, self.n, self.r
 
-x = MakeNumber()
+    def correct(self):
+        "correct method to get the desired output"
+        for i in range(len(self.r)):
+            self.l[i].append(self.r[i])
+            self.l[i].append(self.n-self.r[i])
+            self.l[i].pop(0)
+        return self.l #[[0, 7], [1, 6], [2, 5], [3, 4], ['e']]               
+
+    #now come the experiments to learn break and continue
+    def wrong1(self):
+        "experiments to learn break and loop control without removing numbers from r"
+        for number in self.r:
+            for sublist in self.l:
+                sublist.append(number)
+                sublist.append(self.n-number) 
+                #break [[0, 7, 1, 6, 2, 5, 3, 4], [], [], [], []]
+            #break [[0, 7], [0, 7], [0, 7], [0, 7], [0, 7]] 
+        for sublist in self.l:
+            sublist.pop(0)
+        return self.l #[[0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4]]
+
+    def removal_from_r_wrong1(self): #should never be attempted deletion of elements from list under current iteration
+        "removing numbers from r after loop runs"
+        print(self.r)
+        for number in self.r:
+            print(f"number is {number}")
+            for sublist in self.l:
+                try:
+                    sublist.append(number)
+                    sublist.append(self.n-number)
+                    print(f"l is {self.l}")
+                    print(f"number after sublist loop is {number}")
+                    #self.r.remove(number) [[0, 7, 2, 5], [0, 7, 2, 5], [0, 7, 2, 5], [0, 7, 2, 5], [0, 7, 2, 5]]
+                    #print(f"r is {self.r}")
+                except:
+                    pass
+            print(f"number after sublist loop is {number}") #CANT UNDERSTAND WHY LOOP NEVER GOES TO 1 AND 3
+            self.r.remove(number) #[[0, 7, 2, 5], [0, 7, 2, 5], [0, 7, 2, 5], [0, 7, 2, 5], [0, 7, 2, 5]]
+        for sublist in self.l:
+            sublist.pop(0)
+        return self.l
+                
+    def failed2(self):
+        "putting sublist first"
+        print(self.r)
+        for sublist in self.l:
+            for number in self.r:
+                sublist.append(number)
+                sublist.append(self.n-number)
+                #break [[0, 7], [0, 7], [0, 7], [0, 7], [0, 7]]
+            break
+            sublist.pop(0)#note in earlier functions we need to run a loop to pop from sublists as we were putting numbers first in above functions
+        return self.l #[[0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4]]
+
+    def sublist_first_failed(self):
+        for sublist in self.l:
+            for number in self.r:
+                sublist.append(number)
+                sublist.append(self.n-number)
+                #break [[0, 7], [0, 7], [0, 7], [0, 7], [0, 7]]
+                #self.r.remove(number)
+            #break [['a', 0, 7, 1, 6, 2, 5, 3, 4], ['b'], ['c'], ['d'], ['e']]
+            sublist.pop(0)
+            #break [[7, 1, 6, 2, 5, 3, 4, 0, 7, 1, 6, 2, 5, 3, 4], ['b'], ['c'], ['d'], ['e']]
+        return self.l
+x = Make7()
+y = Make7(9,[1]) #values surpassing the default values for positional arguments
+#z = Make7({l:[2], n:8}) doesnt work      
+
+class RemoveEmptySublists:
+    "empty lists are false objects so cant be removed by l.remove"
+    def __init__(self, l=[[char] for char in "abcdefghi"], digits= [number for number in range(int(7/2+1))]):
+        self.l = l
+        self.digits = digits  #from make7 or combinations making a number program
+        for i in range(len(self.digits)): #you can run a code in class definiton if a code is common to the class
+            self.l[i].append(self.digits[i])#note this and next line since this is class definition so self.l and l are interchangable
+            l[i].append(7-self.digits[i]) #note this and previous line
+        for sublist in self.l:
+            sublist.pop(0)      
+
+    def correct_method(self):
+        self.l = [sublist for sublist in self.l if sublist !=0]
+        return self.l #[[0, 7], [1, 6], [2, 5], [3, 4]]
+    
+    def correct2(self):
+        self.l = [sublist for sublist in self.l if sublist]
+        return self.l #[[0, 7], [1, 6], [2, 5], [3, 4]]
+    
+    def wrong_method(self):
+        for sublist in self.l:
+            if sublist == []:
+                self.l.remove(sublist)
+        return self.l #[[0, 7], [1, 6], [2, 5], [3, 4], [], []]
+
+    def wrong2(self):
+        for i in range(len(self.digits)): #we need it here separately but need to comment out same code in class definition otherwise same code would run twice
+            self.l[i].append(self.digits[i])
+            self.l[i].append(7-self.digits[i])
+##        for sublist in self.l:
+##            sublist.pop(0)
+##            if sublist == []:
+##                self.l.remove(sublist)             
+        return self.l
+z = RemoveEmptySublists()    
+    
+
+
 
 """for 0 combinations are [['a', 0, 0], ['b'], ['c'], ['d'], ['e'], ['f'], ['g'], ['h']]
 for 1 combinations are [['a', 0, 0, 0, 1], ['b'], ['c'], ['d'], ['e'], ['f'], ['g'], ['h']]
@@ -45,23 +152,6 @@ q = [[0]]*int(n/2) #problem is they all point to the same object
 t = [[9]]*int(n/2) #lists initialized this way all point to same object and hence no proper output
 r = [_ for _ in range(1,int(n/2+1))]
 s = [char for char in "abcde"]
-
-
-'''for number in r:
-    for sublist in l:
-        sublist.append(number)
-        sublist.append(n-number) #output [['a', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['b', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['c', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['d', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['e', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1]]
-        #r.remove(number) #[['a', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['b', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['c', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['d', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1], ['e', 0, 5, 1, 4, 2, 3, 3, 2, 4, 1]] doesnt take value of r from inside loop
-        #break # [['a', 0, 5, 2, 3, 4, 1], ['b'], ['c'], ['d'], ['e']] control never reaches beyond sublist 1 because of break
-        #continue #[['a', 0, 5], ['b', 0, 5], ['c'], ['d'], ['e']]
-    r.remove(number) #[['a', 0, 5, 2, 3, 4, 1], ['b', 0, 5, 2, 3, 4, 1], ['c', 0, 5, 2, 3, 4, 1], ['d', 0, 5, 2, 3, 4, 1], ['e', 0, 5, 2, 3, 4, 1]]'''
-    
-'''for number in r:
-    print(r)
-    r.append(number*10)
-    print(r)
-    r.remove(number)
-    print(r) #loop can actually update from inside'''
 
 
 d = dict(zip(r,s))
@@ -119,7 +209,7 @@ def make_5(n):
             sublist.append(n-number)
             
             break
-        to_browse.remove(number)
+        to_browse.remove(number) #should never be deleted from the list under iteration
         #break
         
     return to_browse, l

@@ -34,7 +34,7 @@ class Make7:
             sublist.pop(0)
         return self.l #[[0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4], [0, 7, 1, 6, 2, 5, 3, 4]]
 
-    def removal_from_r_wrong1(self):
+    def removal_from_r_wrong1(self): #should never be attempted deletion of elements from list under current iteration
         "removing numbers from r after loop runs"
         print(self.r)
         for number in self.r:
@@ -78,9 +78,7 @@ class Make7:
             sublist.pop(0)
             #break [[7, 1, 6, 2, 5, 3, 4, 0, 7, 1, 6, 2, 5, 3, 4], ['b'], ['c'], ['d'], ['e']]
         return self.l
-
-    def sublist_first_removal_from_r(self):
-        pass
+  
   
 x = Make7()
 y = Make7(9,[1]) #values surpassing the default values for positional arguments

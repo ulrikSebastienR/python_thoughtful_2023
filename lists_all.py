@@ -3,15 +3,44 @@
 #make multiple lists in one go
 l = [[].append(char) for char in "abcde"] #wont work as [] is a none type
 l1 = [[char] for char in "abcde"] #works
-l2 = [[0]]*5 #works however all sublists would point to the same object
+l2 = [[0]]*5 #works however all sublists would point to the same object or false lists
 l3 = [[]] *5 #works however python treats all these blank lists differently IS PENDING
 
-def pop_vs_remove():
-    "#not working currently"
-    l = [[char] for char in "abcdef"]
-    for sublist in l:
-        sublist.remove(char for char in "abcde")
-    return l
+class RemoveEmptySublists:
+    "empty lists are false objects so cant be removed by l.remove"
+    def __init__(self, l=[[char] for char in "abcdefghi"], digits= [number for number in range(int(7/2+1))]):
+        self.l = l
+        self.digits = digits  #from make7 or combinations making a number program
+        for i in range(len(self.digits)): #you can run a code in class definiton if a code is common to the class
+            self.l[i].append(self.digits[i])#note this and next line since this is class definition so self.l and l are interchangable
+            l[i].append(7-self.digits[i]) #note this and previous line
+        for sublist in self.l:
+            sublist.pop(0)      
+
+    def correct_method(self):
+        self.l = [sublist for sublist in self.l if sublist !=0]
+        return self.l #[[0, 7], [1, 6], [2, 5], [3, 4]]
+    
+    def correct2(self):
+        self.l = [sublist for sublist in self.l if sublist]
+        return self.l #[[0, 7], [1, 6], [2, 5], [3, 4]]
+    
+    def wrong_method(self):
+        for sublist in self.l:
+            if sublist == []:
+                self.l.remove(sublist)
+        return self.l #[[0, 7], [1, 6], [2, 5], [3, 4], [], []]
+
+    def wrong2(self):
+        for i in range(len(self.digits)): #we need it here separately but need to comment out same code in class definition otherwise same code would run twice
+            self.l[i].append(self.digits[i])
+            self.l[i].append(7-self.digits[i])
+##        for sublist in self.l:
+##            sublist.pop(0)
+##            if sublist == []:
+##                self.l.remove(sublist)             
+        return self.l
+z = RemoveEmptySublists()    
     
     
     
