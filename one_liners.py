@@ -1,5 +1,17 @@
+#useful one liners in python
+class OneLiners:
+    def __init__(self,l=[],s=""):
+        self.l = l
+        self.s = s
+    def assignment(self,n):
+        a,b, *c = [number for number in range(5)] #note function using its own variable not instance variables
+        #return a,b,c #(0, 1, [2, 3, 4])
+        c.append(n) #[2,3,4,20] for n=30, a function can have its own variable in addition to instance variable
+        return c
+ol = OneLiners()
+
 #list comprehension,
-l = [n for n in range(20) if n%2==0]
+total = sum([n for n in range(20) if n%2==0]) #sum of all even numbers till 20
 multiple_of_both_2_et_3 = [number for number in range(1000) if number%2==0 and number%3==0]
 evenOdd = ["even" if number%2==0 else "odd" for number in range(10)]
 #lcm and hcf

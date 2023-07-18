@@ -3,6 +3,30 @@ s = "madamoiselle"
 alphabets = [char for char in "abcdefghijklmnopqrstuvwxyz"]
 numbers = [number for number in range(1,27)]
 
+class StringOperations:
+    "various operations on string"
+    def __init__(self,s="madamoiselle"):
+        self.s = s
+    def has_repetitions(self):
+        "finds if string has any character repeated"
+        d = {}
+        for char in self.s:
+            if s.count(char)>1:
+                d.update({char:s.count(char)})
+        return d
+    def freq_of_each_character(self):
+        "without str.count method finds repeated characters in string"
+        d = {}
+        for char in self.s:
+            i = 0
+            for char1 in self.s:
+                if char == char1:
+                    i+=1
+            d.update({char:i})        
+        return d
+x = StringOperations()        
+                    
+
 def reverse_string(s):
     l = [char for char in s]
     l_reversed = []

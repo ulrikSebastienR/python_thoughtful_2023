@@ -27,6 +27,16 @@ def repetitions_arrange_alphabetically(s):
                 arranged.append(k)
     answer = "".join(arranged)
 
+def invert_dict(dx):
+    "invert keys and values of a dictionary"
+    xd = {}
+    for k,v in dx.items():
+        xd[v] = k
+    return xd
+
+def sort_d_by_values(dx):
+    pass
+
 
 
 

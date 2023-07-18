@@ -2,19 +2,41 @@
 l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
 #multiple problems exist
 
-def substrings(s):
-        "separate words in the string and non words"
-        return s1, s2
+class StringsPatterns:
+        "breaks string into its component concotaneted substrings of different patterns"
+        def __init__(self,s="heart",s1="earth"):
+                self.s1 = s1
+                self.s = s
 
-def longest_substring_without_repeating_characters(s):
-    return s1
+        def anagram(self):
+                "check if two strings are anagram"
+                if set(self.s1) == set(self.s):
+                        return f"{self.s1} and {self.s} are anagram strings"
+                else:
+                        return f"{self.s} and {self.s1} are not anagam"
+        def longest_substring_without_repeating_characters(self):
+                "shall try not to use libraries"
+                
+                return s2
+        def longest_substring_using_libraries(self):
+                "using libraries"
+                return s
+        def substrings(self):
+                "separate words and non words in the given string"
+                pass
+                return s1, s2
+x = StringsPatterns()
+y = StringsPatterns("madamoiselle","madam")
+                
 
-def strings_patterns(s):
-    "breaks string into its component concotaneted substrings of different patterns"
-    return s1
+        
+            
+            
 
 
-def list_patterns(l):
+
+def list_patterns(l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
+):
         '''separates user list to its sublists assuming one sublist will have one pattern only
     comme [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]'''
 #matching patterns of list only at first, three ways
@@ -28,14 +50,12 @@ def list_patterns(l):
                         if x == number*number:
                                 return "square"
                         elif x == number*number*number:
-                                return "cube"
-                        
+                                return "cube"                        
         def variation(x,y):
                 if y == x+1:
                         return "plus 1"
                 elif y == x-1:
                         return "subtracted 1"
-
         #matching pattern using i-1,i, output length equal to input, this is right method
         k = []
         for i in range(len(l)+1):
@@ -48,7 +68,6 @@ def list_patterns(l):
                                 k.append("no pattern in my database")
                 except:
                         pass #split k when k[i] = "no pattern in my database"
-
         split_indices = []
         for i in range(len(k)+1):
                 try:
@@ -56,7 +75,6 @@ def list_patterns(l):
                                 split_indices.append(i)
                 except:
                         pass
-
         sublists = [[l[0:split_indices[0]-1],l[split_indices[0]:split_indices[1]-1],l[split_indices[1]:len(l)-1]]]
         return sublists, split_indices
                      

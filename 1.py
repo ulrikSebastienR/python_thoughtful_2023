@@ -1,14 +1,27 @@
-def combinations_making_5(n):
-    l = [[]]*n #initialize an empty nested list with 5 inner lists
-    for number in range(1,n):
-        for i in range(n):
-            l[i].append(number)
-            l[i].append(n-number)
-        continue
-    return l
+s = "the unbearable weight of massive talent"
+
+def sort_string_list_by_length(l = ["great", "bien", "toute suite", "maitenant", "cest la vie"]):
+    d, sorteddict = dict(), {}
+    for item in l:
+        d[len(item)] = item
+    sortedstring = sorted(list(d.keys()))
+    for k, v in d.items():
+        for i in range(len(sortedkeys))):
+    
+    return d
 
 
+d,sortedd = {}, {}
+for item in s.split():
+    d[len(item)] = item
+l = sorted(list(d.keys()))
 
+for k,v in d.items():
+    for i in range(len(l)):
+        sortedd[l[i]] = v
+    
+
+  
 var1, var2 = "dick","moby"
 f = {k:v for k,v in zip(var1, var2)}
 

@@ -6,6 +6,14 @@ l1 = [[char] for char in "abcde"] #works
 l2 = [[0]]*5 #works however all sublists would point to the same object or false lists
 l3 = [[]] *5 #works however python treats all these blank lists differently IS PENDING
 
+class ListOperations:
+    "useful list operations"
+    def __init__(self, l):
+        self.l = l
+    def find_indices(self):
+        pass
+       
+
 class RemoveEmptySublists:
     "empty lists are false objects so cant be removed by l.remove"
     def __init__(self, l=[[char] for char in "abcdefghi"], digits= [number for number in range(int(7/2+1))]):
