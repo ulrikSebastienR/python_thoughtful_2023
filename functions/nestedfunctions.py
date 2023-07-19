@@ -41,3 +41,16 @@ def list_patterns(l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 
                         pass
         sublists = [[l[0:split_indices[0]-1],l[split_indices[0]:split_indices[1]-1],l[split_indices[1]:len(l)-1]]]
         return sublists, split_indices
+
+#another example
+def iffun2(x): #nested function and true false in if fun:
+        def funx(x):
+            if x:
+                return True
+            return False
+        if funx(x):
+            return x**2
+        return x**200  
+l = []
+for x in range(10):
+    l.append(iffun2(x)) #[0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 

@@ -23,13 +23,16 @@ class LongestSubstringWithNoRepetitions:
     "Find longest substring of a string that has no repetiting characters"
     def __init__(self, s="Happiness is getting bored of doing your wish. Dopamine is chasing garbage to satisfy pleasure hormone site in your brain"):
         self.s = s
-    def no_duplicates(self):
-        for char in self.s:
-            for char1 in self.s:
-                if char == char1:
-                    return True
-                
-                
+    def list_of_duplicates(self,to_check): #every instance method needs to have self otherwise it wont run
+        duplicates = set() #to check s, use lsnr.method_name(lsnr.s)
+        for item in to_check:
+            i = 0
+            for item1 in to_check:
+                if item == item1:
+                    i+=1
+            if i>1:
+                duplicates.add(item)
+        return list(duplicates)
     def frequencies(self):
         freq = {}
         for char in self.s:
@@ -93,7 +96,14 @@ class LongestSubstringWithNoRepetitions:
                 if v == value:
                     length_wise.update({k:value})
         return list(length_wise)
-      
+    def longest_substring(self):
+        d = {}
+        for string in self.arrange_strings_by_length():
+            if self.list_of_duplicates(string) == []:
+                return string
+            #d.update({string:self.list_of_duplicates(string)}) #output verified with storing strings and their duplicates in a dictionary
+            #break #break destoyed the program needs to be checked
+        #return d
 
 lsnr = LongestSubstringWithNoRepetitions()
 
