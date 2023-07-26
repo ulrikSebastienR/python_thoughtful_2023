@@ -1,3 +1,5 @@
+import integer_operations
+
 alphabets = [char for char in "abcdefghijklmnopqrstuvwxyz"]
 numbers = [number for number in range(1,27)]
 de = {k:v for k,v in enumerate(range(0,50,10))}
@@ -9,6 +11,60 @@ second = [number for number in range(10)]
 third = [number for number in range(100,200,10)]
 #define via one liner list comprehension
 dx = {k:v for k, v in zip(first, second)}
+dv = {10:"a",51:"ab",30:"ba",40:"ca",5:"aca"}
+
+class DictionariesLearning:
+    "various common operations on dictionaries"
+    def __init__(self,d=de):
+        self.d = d
+    def values_from_keys(self):
+        "arrange following"
+        d = integer_operations.fc.closest_sum_using_dict() #self.d is common to entire class while d here is local to this function in question only
+        for k,v in d.items():
+            if k == sorted(d.keys())[0]:
+                first, second, third = d[k]
+        return first, second, third
+    def key_value_matching1(self):
+        d = integer_operations.fc.closest_sum_using_dict()
+        for k, v in d.items():
+            if k == min(d.keys()):
+                first,second,third = d[k]
+        return first,second,third
+    def sort_dictionary_by_keys(self):
+        d,d1 = integer_operations.fc.closest_sum_using_dict(),{}
+        for k,v in d.items():
+            for k in sorted(d.keys()):
+                d1.update({k:v})
+        return d1
+    def swap_keys_values(self):
+        d1 = {}
+        for k,v in self.d.items():
+            d1.update({v:k})
+        return d1          
+    def sort_by_values(self):
+        d1,d = {},{10:"a",51:"ab",30:"ba",40:"ca",5:"aca"}
+        for key, value in d.items():
+            for v in sorted(d.values()):
+                if value == v:
+                    d1.update({key:v})
+##        for v in sorted(d.values()): #both the ways are correct and lead same output
+##            for key,value in d.items():
+##                if value == v:
+##                    d1.update({key:v})
+        return d1
+    def reverse_keys(self, d=dx, d1={}):
+        for k in list(reversed(sorted(d.keys()))):#match against k,v what you want to operate on
+            for key, value in d.items():
+                if k==key:
+                    d1.update({k:value})
+        return d1#list(reversed(sorted(d.keys())))
+    def reverse_values(self,d=dx,d1={}):
+        for v in list(reversed(sorted(d.values()))): #match against k,v what you is your focus on
+            for key, value in d.items():
+                if v==value:
+                    d1.update({v:key})
+        return d1        
+dl = DictionariesLearning()
 
 def repetitions_arrange_alphabetically(s):
     "filtering dictionaries based on key and values"

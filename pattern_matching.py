@@ -1,36 +1,120 @@
 #use switch from python 3.10+ for multiple if else statements
-l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
+list_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
+string_to_check = ""
 #multiple problems exist
+
+class PossiblePatterns:
+        "Possible Patterns for both lists and strings"
+        def __init__(self):
+                pass
+        def increment(self, item1, item2):
+                 if item2 == item1+1:
+                                return "incremented 1"
+        def decrement(self,item1,item2):
+                if item2 == item1-1:
+                        return "decremented 1"
+        def sqroot_for(self, number):
+                for i in range(number/2):
+                        if number == i*i:
+                                return i
+                                break
+        def cuberoot_while(self,number):
+                i=1
+                while i!=number/3:
+                        if number == i*i*i:
+                                return i
+                                break
+                        else:
+                                i+=1
+        def indices_split(self,l):
+                split = []
+                for i in range(1,len(l)):
+                        if l[i] != l[i-1]:
+                                split.append(i)
+                return split                              
+                               
+pp = PossiblePatterns()
+
+class MatchingPatterns:
+        def __init__(self, entered, item1=None, item2=None, pattern=[]):
+                "class to match patterns using functions described in class Possible Patterns"
+                self.entered = entered                
+                self.item1 = item1
+                self.item2 = item2
+                self.pattern = pattern
+                #pattern = [] this doesn't work
+        def list_matching(self):
+                for i in range(len(self.entered)):
+                        if pp.increment(self.entered[i-1],self.entered[i]):
+                                self.pattern.append(pp.increment(self.entered[i-1],self.entered[i]))
+                        else:
+                                self.pattern.append("pattern not found")
+                return self.pattern
+        def string_matching(self):
+                pass
+mp = MatchingPatterns(list_to_check,1, 2)                                                                                    
+        
 
 class StringsPatterns:
         "breaks string into its component concotaneted substrings of different patterns"
         def __init__(self,s="heart",s1="earth"):
                 self.s1 = s1
                 self.s = s
-
         def anagram(self):
                 "check if two strings are anagram"
                 if set(self.s1) == set(self.s):
                         return f"{self.s1} and {self.s} are anagram strings"
                 else:
-                        return f"{self.s} and {self.s1} are not anagam"
-        def longest_substring_without_repeating_characters(self):
-                "shall try not to use libraries"
-                
-                return s2
-        def longest_substring_using_libraries(self):
-                "using libraries"
-                return s
+                        return f"{self.s} and {self.s1} are not anagram"                
         def substrings(self):
                 "separate words and non words in the given string"
                 pass
                 return s1, s2
+        def palindrome(self):
+                "check if a string is palindrome"
+                pass
+        def all_palindrome_substrings(self):
+                "all palindrome substrings in a string"
+                pass
 x = StringsPatterns()
 y = StringsPatterns("madamoiselle","madam")
+                   
+class ListPatterns:
+        "various list patterns"
+        def __init__(self, l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]):
+                self.l = l
+        def find_range(self):
+                "find the biggest range included in your list"
+                pattern = []
+                for i in self.l:
+                        if self.nested_patterns_functions().increment(self.l[i],self.l[i+1]):
+                                pattern.append(self.nested_patterns_functions().increment(self.l[i],self.l[i+1]))                               
+                return pattern
+        def indices_of_a_pattern(self):
+                "find starting and ending indices for the pattern you have identified"
+                pass
+        def split_indices(self):
+                "split indices for all the patterns"
+                pass
+        def missing_positive_at_the_end(self):
+                "assume missing positive at the end of the pattern first missing positive from the pattern you identified"
+                pass
+        def first_missing_positive(self):
+                "your pattern can contain multiple missing positive, you need to identify only the first"
+                pass
+        def all_missing_positives(self):
+                "find all missing positives in the pattern you identified"
+                pass
+##        def nested_patterns_functions(self):
+##                "all functions to check for patterns, trying to nest them into one"
+##                def increment(self,item1,item2):
+##                        if item2 == item1+1:
+##                                return "incremented 1"
+##                def decrement(self,item1,item2):
+##                        if item2 == item1-1:
+##                                return "decremented 1"
                 
-
-        
-            
+lp = ListPatterns()
             
 
 

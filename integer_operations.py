@@ -1,4 +1,101 @@
 #all extra trials such as without recursion and classes for the same function are at the end of this file
+
+class IntegerOperations:
+    "this class will contain operations on integers"
+    def __init__(self, n):
+        self.n = n        
+    def factorial_while(self):
+        global factw #use of global variable to use a variable declared outside the class
+        while self.n!=1:
+            factw = self.n*factw
+            self.n-=1
+        return factw
+    def factorial_for(self):
+        factf = 1 #declare inside to avoid local variable referenced before assignment
+        for i in range(self.n, 1, -1):
+            factf = factf*i
+        return factf
+    def atoi(self):
+        "implement c style string of numbers to integer"
+        pass
+    def decimal_to_roman(self):
+        "decimal to roman"
+        pass
+    def roman_to_decimal(self):
+        "roman to decimal"
+        pass
+io = IntegerOperations(6)
+
+class FindCombinations:
+    def __init__(self, n=7, l=[number for number in range(50)]):
+        self.n = n
+        self.l = l
+    def make7(self):
+        pass
+    def indices_of_2_making_number(self,l=[number for number in range(50) if number%2!=0]):
+        #leetcode problem no 1
+        for i in range(len(l)):
+            for j in range(len(l)):
+                pass
+        return i,j
+    def sum_to_number_by3digits(self,current=[number for number in range(50) if number%2!=0], target=15):
+        "comme 2+3+5=8 all unique triplets"
+        return current#first, second, third
+    def direct_closest_sum_duplicates_allowed(self,user_list=[number for number in range(50) if number%2!=0], target=51):
+        "three numbers that when added get as close as possible to target where a number can appear more than once"
+        to_compare,d = 2, {}
+        for first in user_list:
+            for second in user_list:
+                for third in user_list:
+                    diff = abs(target-first-second-third)
+                    if diff<=to_compare:
+                        to_compare=diff
+                        output = [first, second, third] #this sum has duplicates
+                        d.update({to_compare:output}) #to check the working
+        return d#to_compare, output
+    def closest_sum_using_dict_duplicates_allowed_working(self, target=51):
+        "using dictionary three numbers that when added get as close as possible to target"
+        d = {}
+        for first in self.l:
+            for second in self.l:
+                for third in self.l:
+                    diff = abs(target-first-second-third)
+                    output = [first,second,third]
+                d.update({diff:output})#play with placing d at the end of each loop
+        for k, v in d.items():
+            if k == min(d.keys()):
+                first, second, third = d[k]
+        return d#first,second,third
+    def no_duplicates_sum_closest_to_target_working(self,user_list=[number for number in range(50) if number%2!=0], target=51):
+        "allowing no duplicates closest sum to target"
+        d,d1 = {},{}
+        for first in user_list:
+            for second in [number for number in user_list if number!=first]:
+                for third in [number for number in user_list if number!=first and number!=second]:
+                    diff = abs(target-(first+second+third))
+                d.update({diff:[first,second,third]})#place d at end of each loop to see the inner working             
+        for k in sorted(d.keys()):
+            for key, value in d.items():
+                if k == key:
+                    d1.update({k:value})
+        #for k in sorted(d.keys()):
+        for key, value in d.items():
+            if key == sorted(d.keys())[0]:
+                closest = {key:value}
+        return f"closest is {closest}, sorted dict is {d1} unsorted dict is {d} avec length {len(d)}"
+    def no_duplicates_sum_closest_to_target_direct(self, user_list=[number for number in range(50) if number%2!=0],target=51):
+        d,d1 = {},{}
+        for first in user_list:
+            for second in [_ for _ in user_list if _!=first]:
+                for third in [_  for _ in user_list if _!= first and _!=second]:
+                    diff = abs(target-first-second-third)
+                    if diff <=3:
+                        d.update({diff:[first,second,third]})
+        return d[min(d.keys())]  #check return d as well pour la verification                      
+    def bidirectional_search(self, target=51):
+        return       
+fc = FindCombinations()
+
 def exponent(number, power):
     "calculates value of a number when raised by an exponent"
     product = 1
@@ -65,23 +162,11 @@ while n!= 6-2:
 #classes for functions already wrote
 
 factw = 1
-class IntegerOperations:
-    "this class will contain operations on integers"
-    def __init__(self, n):
-        self.n = n
+d=d1={}
+
+            
         
-    def factorial_while(self):
-        global factw #use of global variable to use a variable declared outside the class
-        while self.n!=1:
-            factw = self.n*factw
-            self.n-=1
-        return factw
 
-    def factorial_for(self):
-        factf = 1 #declare inside to avoid local variable referenced before assignment
-        for i in range(self.n, 1, -1):
-            factf = factf*i
-        return factf
 
-trial = IntegerOperations(6)
+
         

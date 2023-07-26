@@ -1,0 +1,12 @@
+useful PYTHON NOTES
+# for loop with two variables in a single range can be run as:
+for n, i in zip(range(10), range(10)):
+#if you do d=d1={}, both d and d1 will point to same object and hence their values will always be same, you can check by doing id(d) and id(d1)
+#initializing l=[[]*5] makes all 5 inner lists to point to the same object
+l = [[].append(char) for char in "abcde"] #wont work as [] is a none type
+l1 = [[char] for char in "abcde"] #works
+l2 = [[0]]*5 #works however all sublists would point to the same object or false lists
+l3 = [[]] *5 #works however python treats all these blank lists differently IS PENDING    
+#for and while both need an iterator to update itself, this iterator does not need to be one of the variables in the loop
+
+

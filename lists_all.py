@@ -8,11 +8,64 @@ l3 = [[]] *5 #works however python treats all these blank lists differently IS P
 
 class ListOperations:
     "useful list operations"
-    def __init__(self, l):
+    def __init__(self, l=[]):
         self.l = l
     def find_indices(self):
         pass
-       
+    def merge_lists(self):
+        m = []
+        do=[[number for number in range(19,88,8)],[number for number in range(10) if number%2!=0],[number for number in range(33,55) if number%3==0],[number for number in range(10,20) if number%2==0]]
+        for sublist in do:
+            m.extend(element for element in sublist)
+        return do, m 
+    def sort_without_sorted(self):
+        l = self.merge_lists()[1]
+        lsorted = [l[0]]
+        for i in range(self.count_element_including_subelements_in_sublists()):
+            try:
+                for item in l:
+                    if item<lsorted[-1]:
+                        lsorted[-1]=item
+                l = [item for item in l if item not in lsorted]
+                lsorted.append(l[0])
+            except:
+                pass
+        return i,lsorted, len(lsorted), l
+    def match_or_subtract_two_lists(self):
+        "matches smaller list against bigger to find which element are missing from bigger"
+        bigger = [number for number in range(10)]# lo.merge_lists()[1]
+        smaller = [number for number in range(5)] #lo.sort_without_sorted()[1]
+        #return bigger, len(bigger), smaller, len(smaller) to check lists in current comparison
+        leftouts = [element for element in bigger if element not in smaller]
+        return leftouts        
+    def count_element_including_subelements_in_sublists(self):
+        do = self.merge_lists()[0]
+        i = 0
+        for sublist in do:
+            for element in sublist:
+                i += 1
+        return i
+    def remove_all_duplicates(self):
+        "do in place, make a set and then convert set to list"
+        l = [[number for number in range(20) if number%2==0]]
+        return l
+    def sort_without_sorted_using_while(self):
+        l = self.merge_lists()[1]
+        lsorted = [l[0]]
+        i=0
+        while i!= self.count_element_including_subelements_in_sublists()-1:
+            #for i in range(self.count_element_including_subelements_in_sublists()):
+            try:
+                for item in l:
+                    if item<lsorted[-1]:
+                        lsorted[-1]=item
+                l = [item for item in l if item not in lsorted]
+                lsorted.append(l[0])
+            except:
+                pass
+            i+=1
+        return i,lsorted, len(lsorted), l  
+lo = ListOperations()
 
 class RemoveEmptySublists:
     "empty lists are false objects so cant be removed by l.remove"

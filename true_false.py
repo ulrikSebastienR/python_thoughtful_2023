@@ -11,7 +11,7 @@ class TrueFalse:
         if i: 
             return i
         else:
-            return "False"
+            return "False" #or do bool(0) or bool() both return false
     def iffun2(self,x): #nested function and true false in if fun:
         def funx(x):
             if x:
@@ -20,7 +20,10 @@ class TrueFalse:
         if funx(x):
             return x**2
         return x**200
-    
+    def return_false(self):
+        return bool(0)
+    def return_false1(self):
+        return bool()
 tf = TrueFalse()
 l = []
 for x in range(10):

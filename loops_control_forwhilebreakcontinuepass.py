@@ -2,6 +2,13 @@
 #you can update item to traverse (like a list) in the loop itself and loop will traverse the updated list from next iteration
 #while loop can not update itself and you need to provide value of iterator for the next step otherwise it will keep on hanging on the very first iteration
 
+class ForVsWhile:
+    def __init__(self):
+        pass
+class BreakPassContinue:
+    def __init__(self):
+        pass
+
 class Make7:
    # n = 7 class variable
     "find all numbers that when added make 7" 

@@ -1,58 +1,46 @@
-class StringOperations:
-    def __init__(self,s = "the unforgettable lightness of being"):
-        self.s = s
-    def repeated(self):
-        repeats = set()
-        for char in s:
-            if s.count(char)>1:
-                repeated.add(char)
-        return repeats
-    def repetitions(s="madamoiselle"):
-        "checks if string has any repeated characters"
-        d = {}
-        for char in s:
-            if s.count(char) >1:
-                d.update({char:s.count(char)})
-        return d        
+#you need to close a file or open with WITH, "w" creates a file or overwrites existing, "a" appends existing file
+with open("blank.tex", "w") as f:
+    f.write("written through python") #no need to close explicitly
 
-x = StringOperations()
+#you need to open file every time else f.readlines would be an empty list
+#print specified number of characters
+f = open("openquestions.tex")
+chars15 = f.readline(15)
+f.close()
 
-def indices_of_repeating_chars(s="the unforgettable weight of massive talent"):
-    repeats = set()
-    for char in s:
-        if s.count(char)>1:
-            repeats.add(char)
-    d = {}
-    for element in repeats:
-        s.index(element)
-        d.update({element: s.rfind(element)}
-        #return d
+#get all words
+f = open("pour_reading.tex")
+x = f.read(-1)
+words = x.split()
 
-def longest_substring(s="the unforgettable weight of massive talent"):
-    repeats = set()
-    for char in s:
-        if s.count(char)>1:
-            repeats.add(char)
-    l = []
-    for element in repeats:
-        l.extend(item for item in s.rsplit(element))
-    #now sort list by length of strings
+
+#count number of lines in a file
+f = open("openquestions.tex")
+i = len(f.readlines())
+#or
+f = open("openquestions.tex")
+j = 0
+for each in f:
+    j += 1
+f.close()
+
+#get all contents in a list
+f = open("openquestions.tex")
+data = f.readlines()
+
+
+#print each line with line number
+f = open("openquestions.tex")
+for i,line in enumerate(f.readlines(),1):
+    print(i,line)
+print("------")
     
-            
-    return repeats, l
-
-def sort_list_by_lengths_of_elements(l=['', '', '', '', ' massive talent', ' of massive ', ' tal', ' unforg', ' w', 'able weigh', 'alen', 'ble weight of m', 'e unforgettable weig', 'e weight of massive ta', 'ent', 'ettable wei', 'f massive talent', 'forgettable weight of massive tale', 'ght of mass', 'he unforge', 'ht of massive talent', 'ight of massiv', 'ive talent', 'lent', 'massive', 'nt', 'of', 'orgettable weight o', 'rgettable weight ', 'ssive t', 't', 't', 't of massive talent', 'talent', 'th', 'the', 'the u', 'the un', 'the unf', 'the unfor', 'the unforgett', 'the unforgettab', 'the unforgettable we', 'the unforgettable weight of ma', 'ttabl', 'unforgettable', 've talent', 'weight']):
-    sorted_list = [l[0]]
-    for item in l:
-        if len(item) >= len(sorted_list[-1]):
-            sorted_list.append(item)
-    return sorted_list
-
-l = ['', '', '', '', ' massive talent', ' of massive ', ' tal', ' unforg', ' w', 'able weigh', 'alen', 'ble weight of m', 'e unforgettable weig', 'e weight of massive ta', 'ent', 'ettable wei', 'f massive talent', 'forgettable weight of massive tale', 'ght of mass', 'he unforge', 'ht of massive talent', 'ight of massiv', 'ive talent', 'lent', 'massive', 'nt', 'of', 'orgettable weight o', 'rgettable weight ', 'ssive t', 't', 't', 't of massive talent', 'talent', 'th', 'the', 'the u', 'the un', 'the unf', 'the unfor', 'the unforgett', 'the unforgettab', 'the unforgettable we', 'the unforgettable weight of ma', 'ttabl', 'unforgettable', 've talent', 'weight']
-
-
-            
-        
-
+#print each word
+f = open("openquestions.tex")
+lines = words1 = []
+for line in f.readlines():
+    lines.append(line)
+    for word in line.split():
+        words1.append(word)
     
-
+#still left delete a particular line or arrange words as per your choice or put space at a particular point in a file
