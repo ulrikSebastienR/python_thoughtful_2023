@@ -13,14 +13,15 @@ class WithoutUsingBuiltIns:
         return perms, len(perms) #verified with itertools.permutations([1,2,3,4],3)
     def combinations(self):
         #not working currently
-##        combs_list, choose = [], self.number
-##        for first in self.l:
-##            for second in [number for number in self.l if number!=first]:
-##                for third in [number for number in self.l if number!=first and number!=second]:
-##                    pass
-##            combs_list.append((first,second,third))
-##        return combs_list, len(combs_list) #set is unhashable type so a set cant filter if its components are set themselves
-        pass
+        combs_list, choose = [], self.number
+        for first in self.l:
+            for second in [number for number in self.l if number!=first]:
+                for third in [number for number in self.l if number!=first and number!=second]:                    
+                    combs_list.append((first,second,third))
+        return combs_list, len(combs_list) #set is unhashable type so a set cant filter if its components are set themselves
+    def diff_two_ds(self,ds2=tuple(number for number in range(5)),ds1=tuple(number for number in range(3))):       
+        diff = [item for item in ds1 if item not in ds2] #need to make it dynamic to automatically put first the bigger one
+        return diff
 wubi = WithoutUsingBuiltIns()
 
 class UsefulBuiltIns:

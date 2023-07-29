@@ -31,7 +31,9 @@ class PossiblePatterns:
                 for i in range(1,len(l)):
                         if l[i] != l[i-1]:
                                 split.append(i)
-                return split                              
+                return split
+        def substring_with_longest_sum(self,l):
+                pass
                                
 pp = PossiblePatterns()
 

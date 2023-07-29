@@ -5,6 +5,9 @@ l = [[].append(char) for char in "abcde"] #wont work as [] is a none type
 l1 = [[char] for char in "abcde"] #works
 l2 = [[0]]*5 #works however all sublists would point to the same object or false lists
 l3 = [[]] *5 #works however python treats all these blank lists differently IS PENDING
+do = [[number for number in range(19,88,8)],[number for number in range(10) if number%2!=0],[number for number in range(33,55) if number%3==0],[number for number in range(10,20) if number%2==0]]
+merged_do = [19, 27, 35, 43, 51, 59, 67, 75, 83, 1, 3, 5, 7, 9, 33, 36, 39, 42, 45, 48, 51, 54, 10, 12, 14, 16, 18]#could not do it with list comprehension
+list_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
 
 class ListOperations:
     "useful list operations"
@@ -263,3 +266,10 @@ def program2(n):
 
 for j in range(len(l)-1, 0,  -1):
     print(l[j])
+
+l1 = [number for number in range(5)]
+l2 = [char for char in "abcde"]
+d = dict(zip(l1,l2))
+l3 = [char for char in "abcd"]
+d3 = dict(zip(l1,l3))
+
