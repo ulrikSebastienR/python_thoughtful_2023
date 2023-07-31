@@ -1,4 +1,4 @@
-from browse_file_dirs import FileOperations
+#from browse_file_dirs import FileOperations
 
 #reverse a string, you can reverse a list using l.reverse()
 s = "madamoiselle"
@@ -47,7 +47,13 @@ class StringOperations:
         l = [char for char in s]
         l_reversed = []
         l_reversed.extend(l[len(l)-1-i] for i in range(len(l)))
-        return "".join(l_reversed)                      
+        return "".join(l_reversed)
+    def reverse_string2(self):
+        "cant reverse a string using reversed(s)"
+        l = []
+        for i in range(len(self.s)-1,-1,-1): #-1 end point of range because if you put 0, range will not take first alphabet as 0 wont be included
+            l.append(s[i])
+            return "".join(l)        
     def arrange_alphabetically_no_repetition(s):
         "arrange a string or list alphabetically without repetitions"
         global alphabets, numbers

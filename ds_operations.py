@@ -5,7 +5,7 @@ list_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 5
 
 class DSOperations:
     "common operations to lists, tuples and strings, enter your ds to operate on"
-    def __init__(self, ds1=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1],ds2=[number for number in range(4)], s="j dis oui madamoiselle cest arien neira madam"):
+    def __init__(self, ds1=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1],ds2=[number for number in range(4)], s="j dis oui madamoiselle cest arien neira madam oui"):
         self.ds1 = ds1
         self.ds2 = ds2
         self.s = s
@@ -51,7 +51,7 @@ class DSOperations:
             return [element for element in self.ds2 if element not in self.ds1]
         else:
             return "perfect match"            
-    def group_anagrams_and_repeats(self):#need to have one item only once
+    def group_anagrams_and_repeats(self):#INCOMPLETE need to have one item only once
         "takes a string and groups anagrams but excludes repeats"
         anagrams, repeated = [],[]
         for substring in self.all_substrings_direct():
@@ -61,7 +61,24 @@ class DSOperations:
                 elif substring == substring1:
                     repeated.append(substring)                
         return anagrams, repeated
-    def duplicates(self):
+    def anagrams_in_a_sentence_or_words(self):
+        words = self.s.split()
+        duplicates, anagrams = [],[]
+        for word in words:
+            for word1 in words:
+                if set(word)==set(word1) and word!=word1:
+                    anagrams.append(word)            
+        return anagrams
+    def duplicates_in_a_sentence_or_words(self):#INCOMPLETE, fais le plus tard
+        words = self.s.split()
+        duplicates = []
+        for word in words:
+            i = 0
+            for word1 in words:
+                pass
+                
+        return duplicates
+    def duplicates_in_allsubstrings(self):
         "find duplicates"
         l,d = self.all_substrings_direct(), {}
         for substring in self.all_substrings_direct():
@@ -72,7 +89,7 @@ class DSOperations:
             if i>1:
                 d.update({substring:i})
         return list(d.keys())
-    def remove_duplicates(self):
+    def remove_duplicates_from_all_substrings(self):#INCOMPLETE, taking too long
         "find and remove duplicate substrings"
         without_duplicates = [item for item in self.all_substrings_direct() if item not in self.duplicates()]
         return without_duplicates

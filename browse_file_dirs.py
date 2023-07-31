@@ -74,7 +74,29 @@ class FileOperations:
 file = os.path.join(os.getcwd(),"openquestions.tex")    
 fo = FileOperations(file)
 
-s = "  ram shiva "
+#earlier approach
+
+s = set()
+
+for root, dirs, files in os.walk(os.getcwd()):
+    for file in files:
+        y = str(os.path.join(root, file))
+        s.add(y)
+    #print(f"root is {root}")
+    #print(f"directories in {root} are {list(dirs)}")
+    #print(f"files in {root} are {list(files)}", "\n")
+    for d in dirs:
+        x = str(os.path.join(root, d))
+        #print(f"x is {x}", "\n")
+        for rootx, d1, filesx in os.walk(x):
+    
+            for file in filesx:
+                print(os.path.join(rootx, file), "\n")
+                #works correct so far, now to store all files in a list
+                y = str(os.path.join(rootx, file))
+                s.add(y)
+                
+print(list(s),"\n", len(s))          
 
 
                                    

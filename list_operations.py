@@ -11,10 +11,26 @@ list_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 5
 
 class ListOperations:
     "useful list operations"
-    def __init__(self, l=[]):
+    def __init__(self, l=list_to_check):
         self.l = l
     def find_indices(self):
         pass
+    def duplicates(self,entered="chaque matin"):
+        duplicates = []
+        for item in entered:
+            i = 0
+            for item1 in entered:
+                if item == item1:
+                    i+=1
+            if i>1:
+                duplicates.append(item)
+        return duplicates            
+    def in_place_modification_et_remove_duplicates(self, entered=[]):
+        s = "bonjour"
+        l = list(s)
+        duplicates = self.duplicates(s)
+        l[:] = [item for item in l if item not in duplicates] #note using l[:]
+        return l       
     def merge_lists(self):
         m = []
         do=[[number for number in range(19,88,8)],[number for number in range(10) if number%2!=0],[number for number in range(33,55) if number%3==0],[number for number in range(10,20) if number%2==0]]
