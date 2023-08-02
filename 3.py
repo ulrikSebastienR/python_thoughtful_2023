@@ -1,3 +1,4 @@
+#added to verify"
 l = ["madamoiselle", "distract", "and"]
 sorted_list = [""]
 for item in l:
