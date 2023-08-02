@@ -35,7 +35,13 @@ class FileOperations:
 fo = FileOperations()
 
 s = "simple mais génial, écrivez une critique plus tard" #sort this sentence
+words = s.split()
+l = [number for number in range(50,10,-5)]
+d = dict(zip(l,words))
 
+#char = str(input("enter a char"))
+def not_et_in(char):
+    return ("empty" if char not in s else "not empty")
 
 
 #f = open(path2)

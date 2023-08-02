@@ -29,6 +29,24 @@ class UsefulHacks:
         return char if char in self.s else "voila" #this is one liner for above if else
 uh = UsefulHacks()
 
+class UsefulKeywords:
+    "not, in, is, id"
+    def __init__(self,l=[],char="s",sen="ambition de quoi, croire en quoi, sa paix du moment, pas la recherche de quelque chose incluant la paix"): 
+        self.l = l
+        self.char = char
+        self.sen = sen
+    def not_et_in(self,input_char):
+        return input_char if input_char not in self.sen else not self.l
+uk = UsefulKeywords()
+
+class BuiltIns:
+    "divmod, eval, exec"
+    def __init__(self,l=[],char="s",sen="ambition de quoi, croire en quoi, sa paix du moment, pas la recherche de quelque chose incluant la paix"):
+        self.l = l
+        self.char = char
+        self.sen = sen
+bi = BuiltIns()
+        
 #ones that can't be written in a class
 #use of next
 dso = ds_operations.DSOperations()

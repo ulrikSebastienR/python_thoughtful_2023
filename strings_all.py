@@ -35,7 +35,7 @@ class StringOperations:
                 pre.append(s1[i])
             else:
                 break            
-        return "".join(pre), smallest
+        return "".join(pre), smallest    
     def print_zigzag_pattern(self):
         s1 = "i  i \n a m \n   m \n g  \n   a \n   r      ima      \n indian         chef \n"
         print(s1)
@@ -48,6 +48,10 @@ class StringOperations:
         l_reversed = []
         l_reversed.extend(l[len(l)-1-i] for i in range(len(l)))
         return "".join(l_reversed)
+    def sort_string(s):
+        "sorted(s) sorts only alphabets of the string, create list of alph & join after sorting"
+        
+
     def reverse_string2(self):
         "cant reverse a string using reversed(s)"
         l = []
@@ -69,8 +73,7 @@ class StringOperations:
             for k,v in d.items():
                 if item == v:
                     ans.update({k:item})
-        answer = "".join(list(ans))
-            
+        answer = "".join(list(ans))            
         return d, v_arranged, answer
     def repetitions_arrange_alphabetically(s):
         "arrange a list or string alphabetically with repetitions allowed"
@@ -89,7 +92,15 @@ class StringOperations:
                     arranged.append(k)
         answer = "".join(arranged)        
         return d, valuesof_s,arranged, answer
-so = StringOperations()        
+so = StringOperations()
+
+class SentenceOperations:
+    def __init__(self, sen="ambition of what, believe in what, its peace of the moment, not the search for something including peace"):
+        self.sen = sen
+    def sort_a_list_of_strings(self):
+        words = self.sen.split() 
+        return sorted(words)
+sno = SentenceOperations()
                     
 
 
