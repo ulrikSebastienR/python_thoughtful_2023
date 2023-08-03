@@ -190,7 +190,29 @@ def extreme_temp(d):
             extreme[k] = v
     return extreme
 
-
+sen = "simple mais génial, écrivez une critique plus tard"
+l = [number for number in range(50,15,-5)]
+words = sen.split()
+d = dict(zip(l,words))
+dt = {}
+#invert
+##for k,v in d.items():
+##    dt.update({v:k})
+#sort by keys
+##for key in sorted(list(d.keys())):
+##    for k,v in d.items():
+##        if key == k:
+##            dt.update({k:v})
+#reverse sort by keys
+##for key in reversed(sorted(d.keys())):
+##    for k,v in d.items():
+##        if key == k:
+##            dt.update({k:v})
+#sort by values
+for value in sorted(list(d.values())):
+    for k,v in d.items():
+        if value == v:
+            dt.update({k:v})
 
 
 

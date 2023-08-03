@@ -17,8 +17,11 @@ class UsefulHacks:
         return reversed_string
     def slicing(self):
         "[start,end, step]"
-        reversed_string = self.s[::-1]
+        reversed_string = self.s[::-1] 
         return reversed_string
+    def slicing1(self):
+        example = self.s[::-3]
+        return example #note that first element is always included in slicing                                                        
     def if_mutiple_together_and_one_liner(self):
         "match if a string has a character"
         char = str(input("enter a character"))
@@ -37,6 +40,8 @@ class UsefulKeywords:
         self.sen = sen
     def not_et_in(self,input_char):
         return input_char if input_char not in self.sen else not self.l
+    def not_et_in2(self,input_char):        
+        return ("empty" if input_char not in self.sen else not "not empty")
 uk = UsefulKeywords()
 
 class BuiltIns:

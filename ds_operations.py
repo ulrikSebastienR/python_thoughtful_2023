@@ -10,6 +10,14 @@ class DSOperations:
         self.ds2 = ds2
         self.s = s
         #self.s2 = s2
+    def distance_between_strings(self):
+        "make one string from another string, leetcode problem"
+    def sort_list_on_basis_of_another_list(self):
+        "sort l1 on basis of l2"
+        l1 = ["boy","girl", "enfant", "joun", "fille"]
+        l2 = [5,2,51,32,12,29]
+        
+        pass
     def all_sublists_using_combinations(self):
         "create sublists using permutations and combinations"
         from itertools import combinations
