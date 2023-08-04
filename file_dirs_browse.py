@@ -10,17 +10,33 @@ class BrowseDirectory:
                 yield os.path.join(root, file)
 bd = BrowseDirectory(os.getcwd())
 
+zigzag = "/home/normal/python_thoughtful/dir_pour_experimentation/zigzag.tex"
+twitter = "/home/normal/python_thoughtful/latex/a_faire_twitter.tex"
+leetcode = "/home/normal/python_thoughtful/latex/solutions_leetcode_etc.tex"
+path3 = "8.py"
 class FileOperations:
     "reading and writing on files"
-    def __init__(self, file):
+    def __init__(self, file=twitter):
         self.file = file
+    def check_if_file_exists(self,file_to_check=leetcode):#checks if a file exists
+##        if os.path.isfile(file_to_check):
+##            return "Oui"
+##        else:
+##            return "Pas"
+        return "File Exists" if os.path.isfile(file_to_check) else "Pas Existe"
+    def read_zigzag_from_file(self,zigzag=zigzag):
+        return zigzag
     def proper(self):
         f = open(self.file)
         return f.read() 
         f.close()
-    def proper_using_with(self):
+    def contents_proper_using_with(self): #output contents in a string
         with open(self.file) as f:
-            return f.read()
+            contets = f.read() 
+            return contents
+    def read_lines(self): #output all lines in a list
+        with open(self.file) as f:
+            return f.readlines()  
     def lines(self):
         chars= lines= words = []
         f = open(file) #note works for both self.file and file as a class can directly take outside variable
@@ -47,6 +63,16 @@ class FileOperations:
         contents = f.read()
         words = contents.split()
         return words
+    def merge_files(self):
+        with open(self.file) as f1:
+            contents1 = f1.read()
+        with open(leetcode) as f2:
+            contents2 = f2.read()
+        merged = "these files were merged from cli using python"+contents1+contents2
+        with open(path3,"x") as f3: #x is to create, w is to truncate, a is to append
+            f3.write(merged)
+        with open(path3,"r") as f4:
+            return f4.read()                 
     def characters_with_newline(self):
         chars = []
         f = open(file)
@@ -71,8 +97,8 @@ class FileOperations:
         return chars
     def readline_vs_readlines(self):
         pass         
-file = os.path.join(os.getcwd(),"openquestions.tex")    
-fo = FileOperations(file)
+#file = os.path.join(os.getcwd(),"openquestions.tex")    
+fo = FileOperations()
 
 #earlier approach
 
@@ -91,12 +117,12 @@ for root, dirs, files in os.walk(os.getcwd()):
         for rootx, d1, filesx in os.walk(x):
     
             for file in filesx:
-                print(os.path.join(rootx, file), "\n")
+               # print(os.path.join(rootx, file), "\n")
                 #works correct so far, now to store all files in a list
                 y = str(os.path.join(rootx, file))
                 s.add(y)
                 
-print(list(s),"\n", len(s))          
+#print(list(s),"\n", len(s))          
 
 
                                    

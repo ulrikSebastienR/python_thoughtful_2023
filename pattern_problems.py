@@ -117,6 +117,15 @@ class ListPatterns:
 ##                                return "decremented 1"
                 
 lp = ListPatterns()
+
+class PatternProblems:
+        def __init__(self,l=[],s=""):
+                self.l = l
+                self.s = s
+        def merge_intervals(self):
+                "merge overlapping intervals leetcode"
+                pass
+pp = PatternProblems()
             
 
 

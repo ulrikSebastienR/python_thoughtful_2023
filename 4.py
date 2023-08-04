@@ -1,5 +1,5 @@
 #zig zag pattern from a file named no. 5 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#arrange a list on the basis of another list#os.path.isfile()
-zigzag = "/home/normal/python_thoughtful/dir_pour_experimentation/trial2/zigzag.py"
+zigzag = "/home/normal/python_thoughtful/dir_pour_experimentation/zigzag.tex"
 path2 = "/home/normal/python_thoughtful/solutions_leetcode_etc.tex"
 path3 = "8.py"
 
@@ -66,12 +66,41 @@ s = fo.zigzag_pattern_string()
 lengths = []
 lines = s.split("\n")
 lines[:] = [item for item in lines if item!=""]
-for element in lines:
-    lengths.append(len(element))
+traverse = max(len(item) for item in lines)
+output = []
+
+
+for i in range(traverse):
+    try:
+        output.append(lines[0][i])
+        output.append(lines[1][i])
+        output.append(lines[2][i])
+    except:
+        output.append(" ")
+output[:] = [item for item in output if item!= " "]
+
+def fun(lst):
+    result = sum((x for x in (y+1 for y in lst)),10)//3
+    return result
+numbers = [number for number in range(6)]
+new = [item for item in (x*2 for x in output)]
+
+
+
+
 
 "It is possible for courts to deliver a non guilty verdict in absentia but does it hold true for humans too or do they even consider the question"
 
-           
-    
+"""Is winning more important than peace for you
+
+There are three ways to tackle things 
+Wait for time, luck and god to solve it
+Sit calmly, calculate and do as little or as much as you can do
+Be desperate narrowing your vision, completion depends on the difficulty of the problem, not your desperation
+
+Dopamine is hard to refuse but it sees itself out if there's something more important than dopamine check if you have anything more important when you feel urge for dopamine (Marshmallow experiment)"""
+
+
+   
 
             

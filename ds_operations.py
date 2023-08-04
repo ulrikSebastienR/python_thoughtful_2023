@@ -2,6 +2,7 @@
 do = [[number for number in range(19,88,8)],[number for number in range(10) if number%2!=0],[number for number in range(33,55) if number%3==0],[number for number in range(10,20) if number%2==0]]
 merged_do = [19, 27, 35, 43, 51, 59, 67, 75, 83, 1, 3, 5, 7, 9, 33, 36, 39, 42, 45, 48, 51, 54, 10, 12, 14, 16, 18]#could not do it with list comprehension
 list_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
+s1,s2="audrey_bien","aurore_delplace"
 
 class DSOperations:
     "common operations to lists, tuples and strings, enter your ds to operate on"
@@ -10,14 +11,33 @@ class DSOperations:
         self.ds2 = ds2
         self.s = s
         #self.s2 = s2
-    def distance_between_strings(self):
+    def distance_between_strings(self, s1="audrey_bien",s2="aurore_delplace"):
         "make one string from another string, leetcode problem"
+        total_characters = len(s1) if len(s1)>len(s2) else len(s2)
+        distance = 0
+        indices_unmatched = []
+        for i in range(total_characters):
+            try:
+                if s1[i] != s2[i]:
+                    distance += 1
+                    indices_unmatched.append(i)
+            except:
+                pass
+        return total_characters,distance, indices_unmatched
+    def make_one_string_from_another(self,s1="audrey_bien",s2="aurore_delplace"):
+        "leetcode problem"
+        pass
     def sort_list_on_basis_of_another_list(self):
         "sort l1 on basis of l2"
         l1 = ["boy","girl", "enfant", "joun", "fille"]
         l2 = [5,2,51,32,12,29]
-        
-        pass
+        d = dict(zip(l2,l1))
+        sorted_l1 = []
+        for key in sorted(d.keys()):
+            for k,v in d.items():
+                if k == key:
+                    sorted_l1.append(v)                   
+        return sorted_l1
     def all_sublists_using_combinations(self):
         "create sublists using permutations and combinations"
         from itertools import combinations

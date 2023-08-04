@@ -102,7 +102,11 @@ class OneLiners:
         a,b,*c = [number for number in range(5)] #assigning a list together with other variables in one line
         c.append(n) # a function can have its own paramter other than instance or class variable
         return a, b, c
-    def filter_dicts(self):
+    def nested_for_loops(self):
+        output = ['e', 'n', 't', 'r', 'o', 'p', 'y', 'v', 's', 'c', 'h', 'a', 'o', 's', 'z', 'e', 'b', 'r', 'a', 's', 'c', 'h', 'o', 'i', 's', 'i', 'r', 'p','a', 's']
+        nested =  [item for item in (_*2 for _ in output)] #strings can be multiplied like numbers
+        return nested
+    def filter_dicts(self): #INCOMPLETE YET
         """convert this
         z = {}
 for k,v in lookup_temperature.items():
