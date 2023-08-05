@@ -83,7 +83,23 @@ class ListOperations:
             except:
                 pass
             i+=1
-        return i,lsorted, len(lsorted), l  
+        return i,lsorted, len(lsorted), l
+    def merge_sublists_element_wise(self):
+        len_to_traverse, merged, automatic = max(len(item) for item in do), [], []
+        #method 1 not automatic        
+        for i in range(len_to_traverse):
+            try:
+                merged.append(do[0][i]) #make this automatic
+                merged.append(do[1][i])
+                merged.append(do[2][i])
+                merged.append(do[3][i])
+            except:
+                pass #leaves elements from middle range sublists after all elements from smallest sublists are done
+        #trying automatic 
+        for j in range(len(do)):
+            for i in range(len_to_traverse):
+                automatic.append(l[j][i])                
+        return merged, automatic
 lo = ListOperations()
 
 class RemoveEmptySublists:

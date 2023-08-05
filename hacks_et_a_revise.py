@@ -33,7 +33,7 @@ class UsefulHacks:
 uh = UsefulHacks()
 
 class UsefulKeywords:
-    "not, in, is, id"
+    "not, in, is, id, del"
     def __init__(self,l=[],char="s",sen="ambition de quoi, croire en quoi, sa paix du moment, pas la recherche de quelque chose incluant la paix"): 
         self.l = l
         self.char = char
@@ -46,11 +46,23 @@ uk = UsefulKeywords()
 
 class BuiltIns:
     "divmod, eval, exec"
-    def __init__(self,l=[],char="s",sen="ambition de quoi, croire en quoi, sa paix du moment, pas la recherche de quelque chose incluant la paix"):
+    def __init__(self,l=[numbers for numbers in range(1,6)],char="s",sen="ambition de quoi, croire en quoi, sa paix du moment, pas la recherche de quelque chose incluant la paix"):
         self.l = l
         self.char = char
         self.sen = sen
 bi = BuiltIns()
+
+class ExamplesToRevise:
+    def __init__(self,l=[numbers for numbers in range(1,6)],s="connards"):
+        self.l = l
+        self.s = s
+    def sum_nested_for_loop(self): #A VERY GOOD EXAMPLE
+        "https://twitter.com/RealBenjizo/status/1687160527129100299?s=20"
+        result = sum((x for x in (y+1 for y in self.l)),10)//3
+        #return (x for x in (y+1 for y in self.l)) #nested for loop output [2,3,4,5,6]
+        return result #sum first adds up all elements in list output by nested for loop and then adds 10 to the total
+er = ExamplesToRevise()
+
         
 #ones that can't be written in a class
 #use of next

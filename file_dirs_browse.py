@@ -13,7 +13,7 @@ bd = BrowseDirectory(os.getcwd())
 zigzag = "/home/normal/python_thoughtful/dir_pour_experimentation/zigzag.tex"
 twitter = "/home/normal/python_thoughtful/latex/a_faire_twitter.tex"
 leetcode = "/home/normal/python_thoughtful/latex/solutions_leetcode_etc.tex"
-path3 = "8.py"
+file_to_write = "trash.py"
 class FileOperations:
     "reading and writing on files"
     def __init__(self, file=twitter):
@@ -24,8 +24,25 @@ class FileOperations:
 ##        else:
 ##            return "Pas"
         return "File Exists" if os.path.isfile(file_to_check) else "Pas Existe"
-    def read_zigzag_from_file(self,zigzag=zigzag):
-        return zigzag
+    def load_zigzag_from_file(self,zigzag=zigzag):
+        with open(zigzag) as f:
+            return f.read()
+    def read_zigzag_from_file(self,zigzag=zigzag):#INCOMPLETE ERROR AN EXTRA TAB SPACE AND A MISSING AND CREATE SPACE BETWEEN WORDS
+        with open(zigzag) as f:
+            s = f.read()
+        lines = s.split("\n")
+        lines[:] = [item for item in lines if item != ""]
+        len_to_traverse = max(len(item) for item in lines)
+        pattern = []
+        for i in range(len_to_traverse):
+            try:
+                pattern.append(lines[0][i])
+                pattern.append(lines[1][i])
+                pattern.append(lines[2][i])
+            except:
+                pass
+        pattern = [item for item in pattern if item!=" "]
+        return "".join(pattern)
     def proper(self):
         f = open(self.file)
         return f.read() 
@@ -69,9 +86,9 @@ class FileOperations:
         with open(leetcode) as f2:
             contents2 = f2.read()
         merged = "these files were merged from cli using python"+contents1+contents2
-        with open(path3,"x") as f3: #x is to create, w is to truncate, a is to append
+        with open(file_to_write,"w") as f3: #x is to create, w is to truncate, a is to append
             f3.write(merged)
-        with open(path3,"r") as f4:
+        with open(file_to_write,"r") as f4:
             return f4.read()                 
     def characters_with_newline(self):
         chars = []
