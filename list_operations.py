@@ -85,7 +85,7 @@ class ListOperations:
             i+=1
         return i,lsorted, len(lsorted), l
     def merge_sublists_element_wise(self):
-        len_to_traverse, merged, automatic = max(len(item) for item in do), [], []
+        len_to_traverse, merged, merged1, automatic = max(len(item) for item in do), [], [], []
         #method 1 not automatic        
         for i in range(len_to_traverse):
             try:
@@ -93,16 +93,25 @@ class ListOperations:
                 merged.append(do[1][i])
                 merged.append(do[2][i])
                 merged.append(do[3][i])
-            except:
+            except: #[19, 1, 33, 10, 27, 3, 36, 12, 35, 5, 39, 14, 43, 7, 42, 16, 51, 9, 45, 18, 59, 67, 75, 83]
                 pass #leaves elements from middle range sublists after all elements from smallest sublists are done
         #method 2 trying automatic 
         for j in range(len(do)):
             for i in range(len_to_traverse):
                 try:
-                    automatic.append(l[j][i])
+                    automatic.append(do[j][i])
+                except:
+                    pass        #[19, 27, 35, 43, 51, 59, 67, 75, 83, 1, 3, 5, 7, 9, 33, 36, 39, 42, 45, 48, 51, 54, 10, 12, 14, 16, 18]
+        for i in range(len_to_traverse):
+            for j in range(len(do)):
+                try:
+                    merged1.append(do[j][i])
+                    merged1.append(do[j][i])
+                    merged1.append(do[j][i])
+                    merged1.append(do[j][i]) #[19, 19, 19, 19, 1, 1, 1, 1, 33, 33, 33, 33, 10, 10, 10, 10, 27, 27, 27, 27, 3, 3, 3, 3, 36, 36, 36, 36, 12, 12, 12, 12, 35, 35, 35, 35, 5, 5, 5, 5, 39, 39, 39, 39, 14, 14, 14, 14, 43, 43, 43, 43, 7, 7, 7, 7, 42, 42, 42, 42, 16, 16, 16, 16, 51, 51, 51, 51, 9, 9, 9, 9, 45, 45, 45, 45, 18, 18, 18, 18, 59, 59, 59, 59, 48, 48, 48, 48, 67, 67, 67, 67, 51, 51, 51, 51, 75, 75, 75, 75, 54, 54, 54, 54, 83, 83, 83, 83], 
                 except:
                     pass
-        return automatic, merged
+        return merged, merged1, automatic
 lo = ListOperations()
 
 class RemoveEmptySublists:
