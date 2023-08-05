@@ -95,11 +95,14 @@ class ListOperations:
                 merged.append(do[3][i])
             except:
                 pass #leaves elements from middle range sublists after all elements from smallest sublists are done
-        #trying automatic 
+        #method 2 trying automatic 
         for j in range(len(do)):
             for i in range(len_to_traverse):
-                automatic.append(l[j][i])                
-        return merged, automatic
+                try:
+                    automatic.append(l[j][i])
+                except:
+                    pass
+        return automatic, merged
 lo = ListOperations()
 
 class RemoveEmptySublists:
