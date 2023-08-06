@@ -5,14 +5,18 @@ class UsingRecursion:
     "in recursion return function itself except for terminating condition for the function where it would return the output variable" 
     def __init__(self, number=6):
         self.number = number
-    def fibb(self,n): #incomplete
+    def fibb(self,n=5): #incomplete
         l = []
-        if n <=1:
-            l.append(0)
-        elif n==2:
-            l.append(1)
-        else:
-            l.append(self.fibb(n-1)+self.fibb(n-2))
+        def inner_fibb(i):
+            if i <=1:
+                x = 0
+            elif i ==2:
+                x = 1
+            else:
+                x = fibb(n-1)+fibb(n-2)
+            return x
+        for i in range(1,n+1):
+            l.append(inner_fibb)
         return l
     def factorial(self,n):
         if n<=1:
@@ -22,38 +26,41 @@ class UsingRecursion:
 ur = UsingRecursion()
 
 class WithoutRecursion:
-    def __init__(self, number=6,x=0,y=1):
+    def __init__(self, number=6):
         self.number = number
-        self.x = x
-        self.y = y
-    def fibb(self,x,y, n): #incomplete
-        l = []
-        y,x = x+y, y
-        for i in range(n):
-            fibb(x,y)
-            l.append(y)
-        return l
-    def factorial_while(self,n): #incomplete
-        i = n
-        while i!=0:
-            fact = i*(i-1)
-            i-=1
-        return fact
-    def factorial_for(self,n): #incomplete
-        fact = 1
-        for i in range(n,0,-1):
-            factorial = fact*i
-        return factorial        
+    def fibb(self):
+        x,y,l = 0,1,[] #do later solution underneath
+        pass    
 wr = WithoutRecursion()
 
 class WhileExamples:
-    def __init__(self, n=5):
-        self.n = n
+    def __init__(self, number=5):
+        self.number = number
+    def factorial_while(self):
+        fact,i = 1,1 #cant do fact=i=1, doing so will make both point to the same object
+        while i!=self.number+1:
+            fact = i*fact
+            i+=1
+        return fact            
 we = WhileExamples()
 
 class ForExamples:
-    def __init__(self, n=5):
-        self.n = n
+    def __init__(self, number=5):
+        self.number = number
+    def factorial_for(self):
+        fact = 1
+        for i in range(1,self.number+1):
+            fact = fact*i
+        return fact
+    def fibb(self):
+        x,y, l = 0,1, [0]
+        def inner_fibb(x,y): #une example de inner function
+            y,x = x+y, y
+            return x,y
+        for i in range(self.number-1):
+            x, y = inner_fibb(x,y) #this is not concurrent modification because you are not modifying the object under iteration
+            l.append(y)
+        return l        
 fe = ForExamples()
 
 
