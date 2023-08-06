@@ -1,23 +1,49 @@
 #write your function thinking what you want it to do
-#in recursion return function itself except for terminating condition for the function where it would return the output variable 
+
 
 class UsingRecursion:
-    def __init__(self, n=6):
-        self.n = n
-    def fibb(self):
-        if self.n <=1:
-            return 0
-        elif self.n==2:
+    "in recursion return function itself except for terminating condition for the function where it would return the output variable" 
+    def __init__(self, number=6):
+        self.number = number
+    def fibb(self,n): #incomplete
+        l = []
+        if n <=1:
+            l.append(0)
+        elif n==2:
+            l.append(1)
+        else:
+            l.append(self.fibb(n-1)+self.fibb(n-2))
+        return l
+    def factorial(self,n):
+        if n<=1:
             return 1
         else:
-            return self.fibb(self.n-1)+self.fibb(self.n-2)        
+            return self.factorial(n-1)*n
 ur = UsingRecursion()
 
 class WithoutRecursion:
-    def __init__(self, n=6):
-        self.n = n
-    def fibb(self):
-        pass
+    def __init__(self, number=6,x=0,y=1):
+        self.number = number
+        self.x = x
+        self.y = y
+    def fibb(self,x,y, n): #incomplete
+        l = []
+        y,x = x+y, y
+        for i in range(n):
+            fibb(x,y)
+            l.append(y)
+        return l
+    def factorial_while(self,n): #incomplete
+        i = n
+        while i!=0:
+            fact = i*(i-1)
+            i-=1
+        return fact
+    def factorial_for(self,n): #incomplete
+        fact = 1
+        for i in range(n,0,-1):
+            factorial = fact*i
+        return factorial        
 wr = WithoutRecursion()
 
 class WhileExamples:
