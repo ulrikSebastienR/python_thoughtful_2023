@@ -7,16 +7,16 @@ class UsingRecursion:
         self.number = number
     def fibb(self,n=5): #incomplete
         l = []
-        def inner_fibb(i):
-            if i <=1:
+        def inner_fibb(i):                     
+            if i ==1:
                 x = 0
             elif i ==2:
                 x = 1
             else:
-                x = fibb(n-1)+fibb(n-2)
+                x = inner_fibb(n-1) + inner_fibb(n-2)
             return x
         for i in range(1,n+1):
-            l.append(inner_fibb)
+            l.append(inner_fibb(i))
         return l
     def factorial(self,n):
         if n<=1:

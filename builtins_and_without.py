@@ -90,3 +90,11 @@ for item in l:
 from itertools import combinations, permutations
 combs = combinations([number for number in range(1,5)],3)
 
+def permute(n=[number for number in range(5)],r=2):
+    permutations = []
+    for item in n:
+        for item1 in [_ for _ in n if _!= item]:
+            permutations.append((item,item1))
+    return permutations
+            
+
