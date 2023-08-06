@@ -68,6 +68,16 @@ class ListOperations:
         "do in place, make a set and then convert set to list"
         l = [[number for number in range(20) if number%2==0]]
         return l
+    def merge_sublists_element_wise(self): 
+        merge = []
+        to_traverse = max(len(item) for item in do)
+        for i in range(to_traverse):
+            for j in range(len(do)):
+                try:
+                    merge.append(do[j][i])
+                except:
+                    pass
+        return merge
     def sort_without_sorted_using_while(self):
         l = self.merge_lists()[1]
         lsorted = [l[0]]
@@ -84,7 +94,7 @@ class ListOperations:
                 pass
             i+=1
         return i,lsorted, len(lsorted), l
-    def merge_sublists_element_wise(self):
+    def incomplete_merge_sublists_element_wise(self): #earlier attempts UNDER OBSERVATION
         len_to_traverse, merged, merged1, automatic = max(len(item) for item in do), [], [], []
         #method 1 not automatic        
         for i in range(len_to_traverse):

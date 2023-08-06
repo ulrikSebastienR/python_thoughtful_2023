@@ -1,24 +1,18 @@
-#zig zag pattern from a file named no. 5 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#arrange a list on the basis of another list#os.path.isfile()
-zigzag = "/home/normal/python_thoughtful/dir_pour_experimentation/zigzag.tex"
-path2 = "/home/normal/python_thoughtful/solutions_leetcode_etc.tex"
-path3 = "8.py"
+#do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 
-class FileOperations:
-    def __init__(self, path=zigzag):
-        self.path = path 
-    
-    def merge_sublists_element_wise(self):
-        s = self.read_method()
-##        for element in s: #considering all sublists are same size
-##            traverse = max(len(element))
-##            
-##            for i in range(len(
+a = 2 and 3
 
-        
-fo = FileOperations()
+values = ([12, 34,56,78]) #didnt know that a parenthesis here wont make it a tuple
+sum_expr = "+".join(str(v) for v in values)
+
 
 s = "simple mais génial, écrivez une critique plus tard" #sort this sentence
-  
+
+def fun(entered):
+    if type(entered) == (list or tuple):
+        return entered
+    else:
+        return "wrong data type"
 
 
 
