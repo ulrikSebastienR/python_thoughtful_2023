@@ -1,6 +1,5 @@
 #write your function thinking what you want it to do
 
-
 class UsingRecursion:
     "in recursion return function itself except for terminating condition for the function where it would return the output variable" 
     def __init__(self, number=6):

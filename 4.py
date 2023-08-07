@@ -1,10 +1,10 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 
 
+str1 = "J adore Python"
+str1.replace("adore", "aime").split()
 
-
-
-
+str2 = str1 #both str1 and str2 have the same id and are indeed the same objects
 
 
 def fun(entered):
