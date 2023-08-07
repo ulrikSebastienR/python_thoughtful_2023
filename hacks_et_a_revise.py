@@ -1,15 +1,17 @@
 import ds_operations
+global_variable = 20
 
 class UsefulHacks:
     def __init__(self, l=ds_operations.dso.ds1,s=ds_operations.dso.s): #passing values from another file
         self.l = l
         self.s = s
+        self.gv = global_variable #a class can access outside(current scope's) variable directly
     def range_to_generate_floats(self):
         temperatures = [temp/10 for temp in range(20,480,5)]
         return temperatures
     def list_modification_in_place(self):
-        l = [number for number in range(5)]
-        l[:] = [number**2 for number in l]
+        l = [number for number in range(global_variable)] # a function can access outside global variable directly
+        l[:] = [number**2 for number in l if number%2==0]
         return l  
     def string_reverse(self):
         "cant use reversed(s) on string"
@@ -77,6 +79,23 @@ def nextsublists(t=(1,2,3)):
             sublists.append(t[i:j])
             yield sublists
 
-l = iter(nextsublists())    #now you can do next(l) to see items one by one, useful when you want to see how a loop is running 
+l = iter(nextsublists())    #now you can do next(l) to see items one by one, useful when you want to see how a loop is running
+#most hacks are from problems posted on twitter by benjamin benett alexander and rohan paul
+print([1,2,3] and [1,2,3]) #and returns the first false value or the last true value
+print([1,2,3] is [1,2,3]) # is checks if ids of the objects are same
+print([1] and 2 and 0) #checking more than two values with and
+print(0 or 1) #first true object or last false object if all are false
+print(0 or [] or 2)
+print(([1,2,3]))#parenthesis doesnt make it a tuple
+print(round(1.5))#if value is exactly in middle rounds up to the nearest even number hence 2
+print(round(2.5))#ans again 2
+#a function picks up global variable itself
+def multiply(x):
+    x*=1
+    return value*10 #value is undefined local variable hence error
+value = 10
+value = multiply(10) #function will take outside global variable and process it
 
+
+      
 

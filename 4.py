@@ -1,12 +1,11 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 
-a = 2 and 3
-
-values = ([12, 34,56,78]) #didnt know that a parenthesis here wont make it a tuple
-sum_expr = "+".join(str(v) for v in values)
 
 
-s = "simple mais génial, écrivez une critique plus tard" #sort this sentence
+
+
+
+
 
 def fun(entered):
     if type(entered) == (list or tuple):
@@ -14,6 +13,7 @@ def fun(entered):
     else:
         return "wrong data type"
 
+s = "simple mais génial, écrivez une critique plus tard" #sort this sentence
 
 
 

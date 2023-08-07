@@ -97,4 +97,5 @@ def permute(n=[number for number in range(5)],r=2):
             permutations.append((item,item1))
     return permutations
             
+print(list(permutations([number for number in range(5)],2)))
 

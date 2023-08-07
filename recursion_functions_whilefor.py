@@ -185,3 +185,14 @@ fe = ForExamples()
 ##if quotientwr!=1:
 ##    factorswr(quotientwr)
 
+def fibb(n):
+    if n<=1:
+        return 0
+    elif n==2:
+        return 1
+    else:
+        return fibb(n-1)+fibb(n-2)
+
+l = []
+for i in range(5):
+    l.append(fibb(i))
