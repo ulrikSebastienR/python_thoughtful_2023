@@ -105,3 +105,10 @@ def permute(n=[number for number in range(5)],r=2):
             
 print(list(permutations([number for number in range(5)],2)))
 
+l = [1,2,3,4,4,3,2,2,1,3]
+duplicates = []
+for item in l:
+    for item1 in [_ for _ in l if _!=item]:
+        if item == item1:
+            duplicates.append(item1)
+

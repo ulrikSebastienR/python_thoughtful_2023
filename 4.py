@@ -16,7 +16,8 @@ def fun(entered):
 s = "simple mais génial, écrivez une critique plus tard" #sort this sentence
 
 
-
+a = "in"
+b = "king"
 
 
 
