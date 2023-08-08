@@ -14,7 +14,7 @@ class UsefulHacks:
         l[:] = [number**2 for number in l if number%2==0]
         return l  
     def string_reverse(self):
-        "cant use reversed(s) on string"
+        "cant use reversed(s) on string as strings are immutable"
         reversed_string = self.s[::-1]
         return reversed_string
     def slicing(self):
@@ -64,6 +64,12 @@ class ExamplesToRevise:
         #return (x for x in (y+1 for y in self.l)) #nested for loop output [2,3,4,5,6]
         return result #sum first adds up all elements in list output by nested for loop and then adds 10 to the total
 er = ExamplesToRevise()
+
+class HacksExamples:
+    def __init__(self, l=[], s= "J adore Python"):
+        self.l = l
+        self.s = s
+    
 
         
 #ones that can't be written in a class

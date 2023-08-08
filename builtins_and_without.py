@@ -97,18 +97,14 @@ def permute(n=[number for number in range(5)],r=2):
             permutations.append((item,item1))
     duplicates = [] #set()
     for item in permutations:
-        for item1 in [_ for _ in permutations if _ !=item]:
-            if set(item)==set(item1):
+        i = 0
+        for item1 in permutations:
+            if item1 != item and set(item1)==set(item):
+                print(item1)
                 duplicates.append(item1)                        
     combs = [item for item in permutations if item not in duplicates]
-    return combs
-            
-print(list(permutations([number for number in range(5)],2)))
+    return duplicates #combs
 
-l = [1,2,3,4,4,3,2,2,1,3]
-duplicates = []
-for item in l:
-    for item1 in [_ for _ in l if _!=item]:
-        if item == item1:
-            duplicates.append(item1)
+print(list(permutations([number for number in range(5)],2)))            
+
 

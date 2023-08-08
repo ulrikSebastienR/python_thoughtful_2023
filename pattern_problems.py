@@ -54,6 +54,10 @@ class MatchingPatterns:
                 return self.pattern
         def string_matching(self):
                 pass
+        def parenthesis_matching1(self,paren_string=")()())()()()()())()()((("):
+                "find length of longest closing pairs of parenthesis ()()() = 6"
+                pass
+                
 mp = MatchingPatterns(list_to_check,1, 2)                                                                                    
         
 

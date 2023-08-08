@@ -4,24 +4,23 @@ class UsingRecursion:
     "in recursion return function itself except for terminating condition for the function where it would return the output variable" 
     def __init__(self, number=6):
         self.number = number
-    def fibb(self,n=5): #incomplete
-        l = []
-        def inner_fibb(i):                     
-            if i ==1:
-                x = 0
-            elif i ==2:
-                x = 1
+    def fibb_recursion(self):
+        def inner_fibb(i):
+            if i<=0:
+                return 0
+            elif i==1:
+                return 1
             else:
-                x = inner_fibb(n-1) + inner_fibb(n-2)
-            return x
-        for i in range(1,n+1):
+                return inner_fibb(i-2)+inner_fibb(i-1)
+        l = []
+        for i in range(self.number):
             l.append(inner_fibb(i))
         return l
     def factorial(self,n):
         if n<=1:
             return 1
         else:
-            return self.factorial(n-1)*n
+            return self.factorial(n-1)*n   
 ur = UsingRecursion()
 
 class WithoutRecursion:
@@ -184,14 +183,6 @@ fe = ForExamples()
 ##if quotientwr!=1:
 ##    factorswr(quotientwr)
 
-def fibb(n):
-    if n<=1:
-        return 0
-    elif n==2:
-        return 1
-    else:
-        return fibb(n-1)+fibb(n-2)
 
-l = []
-for i in range(5):
-    l.append(fibb(i))
+
+

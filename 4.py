@@ -1,5 +1,8 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 
+print("|".join(str(n*n+n) for n in range(5)))
+print(False in range(-3,3)) #checks if there's a single false which is there because of 0
+print(False == False in [False]) #true
 
 str1 = "J adore Python"
 str1.replace("adore", "aime").split()
@@ -17,14 +20,17 @@ s = "simple mais génial, écrivez une critique plus tard" #sort this sentence
 
 
 a = "in"
-b = "king"
+b = "king" #a is in b but list(a) is not in list(b)
+
+parenthesis_list = ")()())()()()()())()()((("
+#p = print(list([number for number in range(5)])) # p is lass None type, a none object
+print(set((1,4))==set((4,1)))
 
 
 
 
 
 
-"It is possible for courts to deliver a non guilty verdict in absentia but does it hold true for humans too or do they even consider the question"
 
 """Is winning more important than peace for you
 
