@@ -133,10 +133,15 @@ class ParenthesisProblems:
         def longest_closing_pairs(self):
                 "find length of longest closing pairs of parenthesis ()()() = 6"
                 sublists = []
-                for i in range(len(self.paren_string)):
-                        for j in range(len(self.paren_string)):                                
-                                sublists.append(self.paren_string[i:j])
+                for i in range(len(self.paren_string)):                     
+                        for j in range(len(self.paren_string)):
+                                if j>i:
+                                        sublists.append(self.paren_string[i:j])
                 return sublists
+        for item in sublists:
+                for i in range(len(l)):
+                        pass
+                
 
 prp = ParenthesisProblems()
 
@@ -258,7 +263,13 @@ def list_patterns1(l):#this program is incomplete
                         pass
         return pattern
 
-
+#NOTES
+l,pattern,pattern1 = [number for number in range(8)],[],[]
+for i in range(len(l)):
+    if l[i] == l[i-1]+1: # it is the right method 
+        pattern.append("increment") #['increment', 'increment', 'increment', 'increment', 'increment', 'increment', 'increment']
+    if l[i+1] == l[i]+1:
+        pattern1.append("increment") #list index goes out of range ['increment', 'increment', 'increment', 'increment', 'increment', 'increment', 'increment']
 
     
 

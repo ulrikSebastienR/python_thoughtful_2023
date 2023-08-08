@@ -19,7 +19,10 @@ class NeverDo:
             del item #pointer has moved so item is never deleted
             print(index, item)#output NameError: name 'item' is not defined#UnboundLocalError: local variable 'item' referenced before assignment
         
+        
 nd = NeverDo()
+#OTHER
+#lists are unhashable type in python therefore can not be used as keys in a dictionary
 
         
         

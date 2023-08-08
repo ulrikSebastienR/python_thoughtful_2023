@@ -94,6 +94,31 @@ class ListOperations:
                 pass
             i+=1
         return i,lsorted, len(lsorted), l
+    def all_sublists(self):
+        "find all sublists or substrings or subtuples"
+        sublists = []
+        for i in range(len(self.l)):
+            for j in range(len(self.l)):
+                if j>i:
+                    sublists.append(self.l[i:j])
+        return sublists
+    def arrange_sublists_length_wise_nested_for(self):
+        "arrange sublists length wise using nested for loop"
+        arranged, sublists = [],[]
+        for i in range(len(self.l)):
+            for j in range(len(self.l)):
+                if j>i:
+                    sublists.append(self.l[i:j])
+        for i in range(len(self.l)):#no need to subtract one as range itself subtracts 1
+            for item in sublists:
+                if len(item) == i:#nested for
+                    arranged.append(item)
+        return arranged
+    def arrange_sublists_length_wise_dict(self):
+        sublists, d = self.all_sublists(), {}
+        for item in sublists:
+            d.update({tuple(item):len(item)}) #lists are unhashable type in python so only strings or tuples can be used as keys to a dict
+        return d
     def incomplete_merge_sublists_element_wise(self): #earlier attempts UNDER OBSERVATION
         len_to_traverse, merged, merged1, automatic = max(len(item) for item in do), [], [], []
         #method 1 not automatic        
