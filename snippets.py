@@ -3,6 +3,9 @@
 print("|".join(str(n*n+n) for n in range(5)))
 print(False in range(-3,3)) #checks if there's a single false which is there because of 0
 print(False == False in [False]) #true
+my_str = "" #check truthiness my_str == True #output False
+my_bool = True or False
+my = not my_str
 
 str1 = "J adore Python"
 str1.replace("adore", "aime").split()

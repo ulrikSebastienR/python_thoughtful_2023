@@ -107,4 +107,11 @@ def permute(n=[number for number in range(5)],r=2):
 
 print(list(permutations([number for number in range(5)],2)))            
 
-
+if (1,3)!=(3,1) and set((1,3)) == set((3,1)):
+    print("out")
+a, b = (1,3), (3,1)
+print(a!=b and set(a)==set(b)) #true
+print(a==b and set(a)==set(b)) #False
+print(a==b or set(a)==set(b))# True
+print(a!=b or set(a)==set(b)) #true
+      

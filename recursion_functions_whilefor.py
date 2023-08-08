@@ -5,7 +5,7 @@ class UsingRecursion:
     def __init__(self, number=6):
         self.number = number
     def fibb_recursion(self):
-        def inner_fibb(i):
+        def inner_fibb(i): #nested functions
             if i<=0:
                 return 0
             elif i==1:

@@ -53,13 +53,9 @@ class MatchingPatterns:
                                 self.pattern.append("pattern not found")
                 return self.pattern
         def string_matching(self):
-                pass
-        def parenthesis_matching1(self,paren_string=")()())()()()()())()()((("):
-                "find length of longest closing pairs of parenthesis ()()() = 6"
-                pass
-                
+                pass   
 mp = MatchingPatterns(list_to_check,1, 2)                                                                                    
-        
+      
 
 class StringsPatterns:
         "breaks string into its component concotaneted substrings of different patterns"
@@ -130,6 +126,21 @@ class PatternProblems:
                 "merge overlapping intervals leetcode"
                 pass
 pp = PatternProblems()
+
+class ParenthesisProblems:
+        def __init__(self, paren_string=")()())()()()()())()()((("):
+                self.paren_string = paren_string
+        def longest_closing_pairs(self):
+                "find length of longest closing pairs of parenthesis ()()() = 6"
+                sublists = []
+                for i in range(len(self.paren_string)):
+                        for j in range(len(self.paren_string)):                                
+                                sublists.append(self.paren_string[i:j])
+                return sublists
+
+prp = ParenthesisProblems()
+
+
             
 
 
