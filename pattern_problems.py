@@ -132,19 +132,27 @@ class ParenthesisProblems:
                 self.paren_string = paren_string
         def longest_closing_pairs(self):
                 "find length of longest closing pairs of parenthesis ()()() = 6"
-                sublists = []
+                sublists, closing_paren = [], []
                 for i in range(len(self.paren_string)):                     
                         for j in range(len(self.paren_string)):
                                 if j>i:
                                         sublists.append(self.paren_string[i:j])
-                return sublists
-        for item in sublists:
-                for i in range(len(l)):
-                        pass
-                
-
+                for sublist in sublists:
+                        for i in range(0,len(sublist),2):
+                                try:
+                                        if all((ord(sublist[i]),ord(sublist[i+1])) == (40,41)):
+                                                closing_paren.append(sublist)
+                                except:
+                                        pass
+                return closing_paren,sublists               
 prp = ParenthesisProblems()
 
+##paren_string, random =")()())()()()()())()()(((", []
+##for i in range(0,len(paren_string),2):        
+##        #print((i), paren_string[i])
+##        if (ord(paren_string[i]), ord(paren_string[i+1])) ==(40,41): #ord to check ascii value of a character
+##                print(i)
+##                random.append(i)                
 
             
 
