@@ -95,8 +95,16 @@ def permute(n=[number for number in range(5)],r=2):
     for item in n:
         for item1 in [_ for _ in n if _!= item]:
             permutations.append((item,item1))
-    dupls = []#set()
+    dupls = []#set()     
     return permutations
+
+dupls = set()
+for i in range(len(permute())):
+    for l[i] in permute():
+        for item in permute()[i+1:]:
+            if set(l[i])==set(item):
+                dupls.add(item)
+            
 
     
 ##    for item in permutations:
@@ -116,8 +124,8 @@ def permute(n=[number for number in range(5)],r=2):
 
 combs1 = permute()
 for item in permute():   
-    for item1 in permute():
-        if item!=item1 and set(item)==set(item1):
+    for item1 in [_ for _ in permute() if _!= item]:
+        if set(item)==set(item1):
             combs1.remove(item1)
     
     

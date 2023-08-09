@@ -1,9 +1,19 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 # an empty hash means starting of a new snippet
 
+#
 #print("|".join(str(n*n+n) for n in range(5)))
+#
 #print(False in range(-3,3)) #checks if there's a single false which is there because of 0
 #print(False == False in [False]) #true
+#
+##print([False]==False) #False
+##print([False]==True) #False
+###
+##print(any([True,False]))#True
+##print(any([False,False]))#False
+##print(all([False,False]))#False
+##print(all([True,False]))#False
 #
 my_str = "" #check truthiness my_str == True #output False
 my_bool = True or False
