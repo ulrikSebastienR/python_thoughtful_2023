@@ -132,7 +132,7 @@ class ParenthesisProblems:
                 self.paren_string = paren_string
         def longest_closing_pairs(self):
                 "find length of longest closing pairs of parenthesis ()()() = 6"
-                sublists, closing_paren = [], []
+                sublists, closing_paren, ordered = [], [], []
                 for i in range(len(self.paren_string)):                     
                         for j in range(len(self.paren_string)):
                                 if j>i:
@@ -140,21 +140,28 @@ class ParenthesisProblems:
                 for sublist in sublists:
                         for i in range(0,len(sublist),2):
                                 try:
-                                        if all((ord(sublist[i]),ord(sublist[i+1])) == (40,41)):
-                                                closing_paren.append(sublist)
+                                        if (ord(sublist[i]),ord(sublist[i+1])) == (40,41):
+                                                closing_paren.append(True)
+                                        else:
+                                                closing_paren.append(False)
                                 except:
                                         pass
-                return closing_paren,sublists               
+                        if all(closing_paren):
+                                ordered.append(sublist)                               
+                         
+                return ordered#,sublists               
 prp = ParenthesisProblems()
 
 ##paren_string, random =")()())()()()()())()()(((", []
-##for i in range(0,len(paren_string),2):        
-##        #print((i), paren_string[i])
-##        if (ord(paren_string[i]), ord(paren_string[i+1])) ==(40,41): #ord to check ascii value of a character
-##                print(i)
-##                random.append(i)                
+               
 
-            
+##paren, pattern = "()()()", []
+##for i in range(0,len(paren),2):
+##        if (ord(paren[i]),ord(paren[i+1]))==(40,41):
+##                pattern.append(True)#output [True, True, True]
+##        if all((ord(paren[i]),ord(paren[i+1])) == (40,41)): #bool object is not iterable
+##                pattern.append("True") #doesnt work
+                
 
 
 

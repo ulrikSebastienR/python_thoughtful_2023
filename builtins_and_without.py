@@ -88,26 +88,39 @@ for item in l:
     i += 1
 
 from itertools import combinations, permutations
-combs = combinations([number for number in range(1,5)],3)
+combs = list(combinations([number for number in range(5)],2))
 
 def permute(n=[number for number in range(5)],r=2):
     permutations = []
     for item in n:
         for item1 in [_ for _ in n if _!= item]:
             permutations.append((item,item1))
-    duplicates = [] #set()
-    for item in permutations:
-        print(f"{item} has set {set(item)}")
-        for item1 in permutations:
-            print(f"item1 is {item1} and its set is {set(item1)}")
-            if item1 != item and set(item1)==set(item):
-                print(f"item1 inside loop {item1}")
-                duplicates.append(item1) 
-##            if set(item1) != set(item):
-##                #print(item1)
-                                       
-    combs = [item for item in permutations if item not in duplicates]
-    return duplicates #combs
+    dupls = []#set()
+    return permutations
+
+    
+##    for item in permutations:
+##        print(f"{item} has set {set(item)}")
+##        for item1 in permutations:
+##            print(f"item1 is {item1} and its set is {set(item1)}")
+##            if item1 != item and set(item1)==set(item):
+##                print(f"item1 inside loop {item1}")
+##                print(f"avant append {dupls}")
+##                dupls.append(item1)
+##                print(f"post append {dupls}")
+####            if set(item1) != set(item):
+####                #print(item1)
+##                                       
+##    #combs = [item for item in permutations if item not in duplicates]
+##    return dupls #combs
+
+combs1 = permute()
+for item in permute():   
+    for item1 in permute():
+        if item!=item1 and set(item)==set(item1):
+            combs1.remove(item1)
+    
+    
 
 #print(list(permutations([number for number in range(5)],2)))
 
