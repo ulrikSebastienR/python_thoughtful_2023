@@ -27,13 +27,15 @@ class IntegerOperations:
         pass
     def factors(self):
         factors = []
-        up, i = self.upper, 1
-        while quotient!=1 and remainder!=0:        
-            for number in range(1,self.upper+1):
-                if self.upper%number==0:
-                    factors.append(number)
-            pass
-        return factors
+        do,i = self.upper, 0
+        while do!=1:
+            for number in range(2,do+1):
+                if do%number==0:
+                    break
+                factors.append(number)
+                do,remainder = divmod(do,number)
+            i+=1        
+        return do,remainder, factors
     def prime(self): #aout 13
         "check if n is prime or not"
         for i in range(2,self.n+1):
@@ -45,11 +47,12 @@ class IntegerOperations:
             return i
     def prime_numbers_in_a_range(self):
         all_prime = []
-        for number in range(1,self.upper+1):
+        for number in range(2,self.upper+1):
             for i in range(2,number+1):
-                if number%i == 0:
+                if number%i==0:
                     break
-                    
+            if i==number:
+                all_prime.append(number)
         return all_prime 
     def prime_factorization(self, number):
         pass
