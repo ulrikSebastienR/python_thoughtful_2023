@@ -53,7 +53,7 @@ class MatchingPatterns:
                                 self.pattern.append("pattern not found")
                 return self.pattern
         def string_matching(self):
-                pass   
+                pass        
 mp = MatchingPatterns(list_to_check,1, 2)                                                                                    
       
 
@@ -80,6 +80,33 @@ class StringsPatterns:
                 pass
 x = StringsPatterns()
 y = StringsPatterns("madamoiselle","madam")
+
+class NumberPatterns:
+        def __init__(self, n = 1231231231234567890):
+                self.n = n
+        def repeating_numbers(self):
+                "find how many times 123 is repeated in 1231231231234567890"
+                s = str(self.n)                
+                sublists = []
+                for i in range(len(s)):
+                        for j in range(len(s)):
+                                if j>i:
+                                        sublists.append(s[i:j])
+                repeated, d = {}, {}
+                for item in sublists:
+                        i = 0
+                        for item1 in sublists:
+                                if item == item1:
+                                        i+=1
+                        if i>1:
+                                repeated.update({item:i})               
+                for k,v in repeated.items():
+                        if v == list(reversed(sorted(repeated.values())))[0]:
+                                d.update({k:v})                             
+                return d, repeated
+        def number_to_list(self):
+                pass
+np = NumberPatterns()                              
                    
 class ListPatterns:
         "various list patterns"
@@ -130,16 +157,85 @@ pp = PatternProblems()
 class ParenthesisProblems:
         def __init__(self, paren_string=")()())()()()()())()()((("):
                 self.paren_string = paren_string
-        def longest_closing_pairs(self):
-                "find length of longest closing pairs of parenthesis ()()() = 6"
-                sublists,ordered = [], {}
+        def match_paren_single(self,paren_right = "()()()"):
+                "proof of concept for single sublist of closing parentheses"
+                to_match = []
+                for i in range(0,len(paren_right),2):
+                        print(paren_right[i],ord(paren_right[i]),paren_right[i+1],ord(paren_right[i+1]))
+                        if (ord(paren_right[i]),ord(paren_right[i+1])) == (40,41):#use of tuples for matching more than one items
+                                to_match.append(True)#match with paren_right[i]=="(" will fail
+                        else:
+                                to_match.append(False)
+                if all(to_match):
+                        return paren_right, len(paren_right)
+        def all_sublists(self):
+                "all pair of parentheses possible/all sublists possible"
+                sublists = []
+                for i in range(len(self.paren_string)):
+                        for j in range(len(self.paren_string)):
+                                if j>i:
+                                        sublists.append(self.paren_string[i:j])
+                return sublists                                        
+        def sublists_starting_proper_at_opening_parenthesis(self):
+                "seperate all sublists that start at ( and has even length like ()()() = 6, only these sublists should be considered "
+                all_parenthesis = self.all_sublists()
+                starting_proper, d = [], {}                
+                for sublist in all_parenthesis:
+                        if ord(sublist[0]) == 40 and len(sublist)%2==0:#matching without ord will fail
+                               starting_proper.append(sublist)                                                        
+                return starting_proper
+        def proper_closing_parenthesis(self):
+                "all parentheis sublists that close properly"
+                do = self.sublists_starting_proper_at_opening_parenthesis()
+                d,correct = {},[]
+                for sublist in do:
+                        status = []
+                        for i in range(0,len(sublist),2):
+                                if (ord(sublist[i]),ord(sublist[i+1]))==(40,41):
+                                        status.append(True)
+                                else:
+                                        status.append(False)
+                        d.update({sublist:status})
+                        if all(status):
+                                correct.append(sublist)                                
+                return correct,d
+        def longest_proper_parenthesis(self):
+                all_proper = self.proper_closing_parenthesis()[0]
+                ours = max(len(item) for item in all_proper)
+                answer = [item for item in all_proper if len(item)==ours]#will be generator expression if we do str(item for) or (item for) and syntax error if we take value without parenthesis ie item for
+                return answer
+        def range_to_slice_only_even_or_odd_indices_items(self):#INCOMPLETE aug 9, 23
+                "range function can used to filter only even or odd indices items"
+                sublists,true_false_status,ordered = [], {},[]
                 for i in range(len(self.paren_string)):                     
                         for j in range(len(self.paren_string)):
                                 if j>i:
                                         sublists.append(self.paren_string[i:j])
+##                for sublist in sublists:
+##                        closing_paren = []
+##                        for i in range(0,len(sublist),2): #will work for only even indices if we do range(0,len(sublist),2) and for odd indices if we do range(1,len(sublist),2)
+##                                try: #problem here is try except which messes indices and doesn't identify (), so needs to separate all substrings that strat with (
+##                                        if (ord(sublist[i]),ord(sublist[i+1])) == (40,41):
+##                                                closing_paren.append(True)
+##                                        else:
+##                                                closing_paren.append(False)
+##                                except:
+##                                        pass
+##                        true_false_status.update({sublist:closing_paren})
+##                for sublist in sublists:
+##                        closing_paren = []
+##                        for i in range(1,len(sublist),2): #will work for only even indices if we do range(0,len(sublist),2) and for odd indices if we do range(1,len(sublist),2)
+##                                try:
+##                                        if (ord(sublist[i]),ord(sublist[i+1])) == (40,41):
+##                                                closing_paren.append(True)
+##                                        else:
+##                                                closing_paren.append(False)
+##                                except:
+##                                        pass
+##                        true_false_status.update({sublist:closing_paren})
                 for sublist in sublists:
-                        closing_paren = []
-                        for i in range(0,len(sublist),2):
+                        closing_paren = []                        
+                        for i in range(len(sublist)): #will work for only even indices if we do range(0,len(sublist),2) and for odd indices if we do range(1,len(sublist),2)
                                 try:
                                         if (ord(sublist[i]),ord(sublist[i+1])) == (40,41):
                                                 closing_paren.append(True)
@@ -147,32 +243,18 @@ class ParenthesisProblems:
                                                 closing_paren.append(False)
                                 except:
                                         pass
-                        ordered.update({sublist:closing_paren})
+                        true_false_status.update({sublist:closing_paren})
+                        
+                        
 ##                        if all(closing_paren):
-##                                ordered.append(sublist)                             
-                return ordered#,sublists  #{')': [], ')(': [False], ')()': [False], ')()(': [False, False], ')()()': [False, False], ')()())': [False, False, False], ')()())(': [False, False, False], ')()())()': [False, False, False, True], ')()())()(': [False, False, False, True], ')()())()()': [False, False, False, True, True], ')()())()()(': [False, False, False, True, True], ')()())()()()': [False, False, False, True, True, True], ')()())()()()(': [False, False, False, True, True, True], ')()())()()()()': [False, False, False, True, True, True, True], ')()())()()()()(': [False, False, False, True, True, True, True], ')()())()()()()()': [False, False, False, True, True, True, True, True], ')()())()()()()())': [False, False, False, True, True, True, True, True], ')()())()()()()())(': [False, False, False, True, True, True, True, True, False], ')()())()()()()())()': [False, False, False, True, True, True, True, True, False], ')()())()()()()())()(': [False, False, False, True, True, True, True, True, False, False], ')()())()()()()())()()': [False, False, False, True, True, True, True, True, False, False], ')()())()()()()())()()(': [False, False, False, True, True, True, True, True, False, False, False], ')()())()()()()())()()((': [False, False, False, True, True, True, True, True, False, False, False], '(': [], '()': [True], '()(': [True], '()()': [True, True], '()())': [True, True], '()())(': [True, True, False], '()())()': [True, True, False], '()())()(': [True, True, False, False], '()())()()': [True, True, False, False], '()())()()(': [True, True, False, False, False], '()())()()()': [True, True, False, False, False], '()())()()()(': [True, True, False, False, False, False], '()())()()()()': [True, True, False, False, False, False], '()())()()()()(': [True, True, False, False, False, False, False], '()())()()()()()': [True, True, False, False, False, False, False], '()())()()()()())': [True, True, False, False, False, False, False, False], '()())()()()()())(': [True, True, False, False, False, False, False, False], '()())()()()()())()': [True, True, False, False, False, False, False, False, True], '()())()()()()())()(': [True, True, False, False, False, False, False, False, True], '()())()()()()())()()': [True, True, False, False, False, False, False, False, True, True], '()())()()()()())()()(': [True, True, False, False, False, False, False, False, True, True], '()())()()()()())()()((': [True, True, False, False, False, False, False, False, True, True, False], ')())': [False, False], ')())(': [False, False], ')())()': [False, False, True], ')())()(': [False, False, True], ')())()()': [False, False, True, True], ')())()()(': [False, False, True, True], ')())()()()': [False, False, True, True, True], ')())()()()(': [False, False, True, True, True], ')())()()()()': [False, False, True, True, True, True], ')())()()()()(': [False, False, True, True, True, True], ')())()()()()()': [False, False, True, True, True, True, True], ')())()()()()())': [False, False, True, True, True, True, True], ')())()()()()())(': [False, False, True, True, True, True, True, False], ')())()()()()())()': [False, False, True, True, True, True, True, False], ')())()()()()())()(': [False, False, True, True, True, True, True, False, False], ')())()()()()())()()': [False, False, True, True, True, True, True, False, False], ')())()()()()())()()(': [False, False, True, True, True, True, True, False, False, False], ')())()()()()())()()((': [False, False, True, True, True, True, True, False, False, False], '())': [True], '())(': [True, False], '())()': [True, False], '())()(': [True, False, False], '())()()': [True, False, False], '())()()(': [True, False, False, False], '())()()()': [True, False, False, False], '())()()()(': [True, False, False, False, False], '())()()()()': [True, False, False, False, False], '())()()()()(': [True, False, False, False, False, False], '())()()()()()': [True, False, False, False, False, False], '())()()()()())': [True, False, False, False, False, False, False], '())()()()()())(': [True, False, False, False, False, False, False], '())()()()()())()': [True, False, False, False, False, False, False, True], '())()()()()())()(': [True, False, False, False, False, False, False, True], '())()()()()())()()': [True, False, False, False, False, False, False, True, True], '())()()()()())()()(': [True, False, False, False, False, False, False, True, True], '())()()()()())()()((': [True, False, False, False, False, False, False, True, True, False], '))': [False], '))(': [False], '))()': [False, True], '))()(': [False, True], '))()()': [False, True, True], '))()()(': [False, True, True], '))()()()': [False, True, True, True], '))()()()(': [False, True, True, True], '))()()()()': [False, True, True, True, True], '))()()()()(': [False, True, True, True, True], '))()()()()()': [False, True, True, True, True, True], '))()()()()())': [False, True, True, True, True, True], '))()()()()())(': [False, True, True, True, True, True, False], '))()()()()())()': [False, True, True, True, True, True, False], '))()()()()())()(': [False, True, True, True, True, True, False, False], '))()()()()())()()': [False, True, True, True, True, True, False, False], '))()()()()())()()(': [False, True, True, True, True, True, False, False, False], '))()()()()())()()((': [False, True, True, True, True, True, False, False, False], ')()()(': [False, False, False], ')()()()': [False, False, False], ')()()()(': [False, False, False, False], ')()()()()': [False, False, False, False], ')()()()()(': [False, False, False, False, False], ')()()()()()': [False, False, False, False, False], ')()()()()())': [False, False, False, False, False, False], ')()()()()())(': [False, False, False, False, False, False], ')()()()()())()': [False, False, False, False, False, False, True], ')()()()()())()(': [False, False, False, False, False, False, True], ')()()()()())()()': [False, False, False, False, False, False, True, True], ')()()()()())()()(': [False, False, False, False, False, False, True, True], ')()()()()())()()((': [False, False, False, False, False, False, True, True, False], '()()(': [True, True], '()()()': [True, True, True], '()()()(': [True, True, True], '()()()()': [True, True, True, True], '()()()()(': [True, True, True, True], '()()()()()': [True, True, True, True, True], '()()()()())': [True, True, True, True, True], '()()()()())(': [True, True, True, True, True, False], '()()()()())()': [True, True, True, True, True, False], '()()()()())()(': [True, True, True, True, True, False, False], '()()()()())()()': [True, True, True, True, True, False, False], '()()()()())()()(': [True, True, True, True, True, False, False, False], '()()()()())()()((': [True, True, True, True, True, False, False, False], ')()()()())': [False, False, False, False, False], ')()()()())(': [False, False, False, False, False], ')()()()())()': [False, False, False, False, False, True], ')()()()())()(': [False, False, False, False, False, True], ')()()()())()()': [False, False, False, False, False, True, True], ')()()()())()()(': [False, False, False, False, False, True, True], ')()()()())()()((': [False, False, False, False, False, True, True, False], '()()()())': [True, True, True, True], '()()()())(': [True, True, True, True, False], '()()()())()': [True, True, True, True, False], '()()()())()(': [True, True, True, True, False, False], '()()()())()()': [True, True, True, True, False, False], '()()()())()()(': [True, True, True, True, False, False, False], '()()()())()()((': [True, True, True, True, False, False, False], ')()()())': [False, False, False, False], ')()()())(': [False, False, False, False], ')()()())()': [False, False, False, False, True], ')()()())()(': [False, False, False, False, True], ')()()())()()': [False, False, False, False, True, True], ')()()())()()(': [False, False, False, False, True, True], ')()()())()()((': [False, False, False, False, True, True, False], '()()())': [True, True, True], '()()())(': [True, True, True, False], '()()())()': [True, True, True, False], '()()())()(': [True, True, True, False, False], '()()())()()': [True, True, True, False, False], '()()())()()(': [True, True, True, False, False, False], '()()())()()((': [True, True, True, False, False, False], ')()())()()((': [False, False, False, True, True, False], '()())()()((': [True, True, False, False, False], ')())()()((': [False, False, True, True, False], '())()()((': [True, False, False, False], '))()()((': [False, True, True, False], ')()()((': [False, False, False], '()()((': [True, True, False], ')()((': [False, False], '()((': [True, False], ')((': [False], '((': [False]}
-             
+##                                ordered.append(sublist)
+                return true_false_status#, ordered, sublists       
 prp = ParenthesisProblems()
 
-paren, ordered =")", []
-closing_paren = []
-for i in range(0,len(paren),2):
-        try:
-                if (ord(paren[i]),ord(paren[i+1])) == (40,41):
-                        closing_paren.append(True)
-                else:
-                        closing_paren.append(False)#[]
-        except:
-                pass
-if all(closing_paren):
-        ordered.append(paren)       #   [')']       
 
-##paren, pattern = "()()()", []
-##for i in range(0,len(paren),2):
-##        if (ord(paren[i]),ord(paren[i+1]))==(40,41):
-##                pattern.append(True)#output [True, True, True]
-##        if all((ord(paren[i]),ord(paren[i+1])) == (40,41)): #bool object is not iterable
-##                pattern.append("True") #doesnt work
+                
+
+
                 
 
 

@@ -1,4 +1,5 @@
 #in all list methods, you can not do l= l.remove(i) as l will be none type now
+#+ operator appends second list to first l1+l2 is valid
 # Program examples are at the end of this file
 #make multiple lists in one go
 l = [[].append(char) for char in "abcde"] #wont work as [] is a none type
@@ -8,11 +9,15 @@ l3 = [[]] *5 #works however python treats all these blank lists differently IS P
 do = [[number for number in range(19,88,8)],[number for number in range(10) if number%2!=0],[number for number in range(33,55) if number%3==0],[number for number in range(10,20) if number%2==0]]
 merged_do = [19, 27, 35, 43, 51, 59, 67, 75, 83, 1, 3, 5, 7, 9, 33, 36, 39, 42, 45, 48, 51, 54, 10, 12, 14, 16, 18]#could not do it with list comprehension
 list_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
+ld = [1,2,3,4,5,50,4,32,3,1,3]#contains duplicates with frequencies more than one
 
 class ListOperations:
     "useful list operations"
     def __init__(self, l=list_to_check):
         self.l = l
+    def use_of_plus(self,l1=[1,2],l2=[3,4]):
+        "+ operator appends list2 to list1"
+        return f"l1+l2 {l1+l2}, l1{l1}, l2{l2}"
     def find_indices(self):
         pass
     def duplicates(self,entered="chaque matin"):
@@ -24,13 +29,84 @@ class ListOperations:
                     i+=1
             if i>1:
                 duplicates.append(item)
-        return duplicates            
+        return duplicates
+    def sets_to_remove_duplicates(self):
+        return set(ld)
+    def multiple_duplicates(self):#INCOMPLETE, CANT GET DUPLICATES STRAIGHT
+        "delete duplicates keeping only one occurence of the duplicate"
+        dups = []
+        for item in ld:
+            i = 0
+            for item1 in ld:
+                if item==item1:
+                    i+=1
+            if i>1:
+                dups.append(item)
+##        for item in dups:
+##            ld.remove(item)
+        return dups#ld
+    def in_place_remove_duplicates_using_keyword_remove(self):#NOT WORKING, CONCURRENT MODIFICATION
+        duplicates = self.duplicates(ld)
+        #return duplicates
+        for item in duplicates:
+            ld.remove(item)
+            #print(ld) #ld is computed but not returned as function has already returned duplicates
+        return ld            
     def in_place_modification_et_remove_duplicates(self, entered=[]):
         s = "bonjour"
         l = list(s)
         duplicates = self.duplicates(s)
         l[:] = [item for item in l if item not in duplicates] #note using l[:]
-        return l       
+        return l
+    def remove_duplicate_tuples(self):#AUOT 13
+        from itertools import permutations, combinations
+        l,r = [number for number in range(5)], 3
+        perms = list(permutations(l,r))
+        combs = list(combinations(l,r))
+        #my_perms = perms will give them same id there need to compute again
+        my_combs = list(permutations(l,r))
+        for item in my_combs:
+            for item1 in [_ for _ in my_combs if _!=item]:
+                if set(item) == set(item1):
+                    my_combs.remove(item1)       
+        return f"combs {combs}, my_combs {my_combs}, perms {perms}"
+    def remove_multiple_duplicates_from_list(self):
+        pass
+    def remove_multiple_duplicates_from_tuple(self):
+        pass
+    def sublist_excluding_current_ith_element(self):
+        pass
+    def remove_duplicates_without_counting(self):#aout 14, not working currenlty
+        duplicates = []
+        for i in range(len(ld)):
+            try:
+                for item in ld[:i]+ld[i+1:]:
+                    if item == ld[i]:
+                        duplicates.append(item)
+            except:
+                pass
+        return duplicates
+##       #AUOT 13, NOT WORKING, concurrent modification
+##        for i in range(len(ld)):
+##            try:
+##                for item in ld[:i]+ld[i+1:]:
+##                    print(f"{ld[i]}")
+##                    if ld[i] == item:
+##                        print("item for removal", item)
+##                        ld.remove(item)
+##                        print(ld)
+##            except:
+##                pass
+##        return ld
+    def remove_duplicates_using_count(self):#auot 13
+        "keep only one occurence of a duplicate item comme set"
+        for item in ld:
+            i = 0
+            while ld.count(item)!=1:
+                if ld.count(item)>1:
+                    ld.remove(item)
+                i+=1
+        return ld
     def merge_lists(self):
         m = []
         do=[[number for number in range(19,88,8)],[number for number in range(10) if number%2!=0],[number for number in range(33,55) if number%3==0],[number for number in range(10,20) if number%2==0]]
@@ -352,3 +428,47 @@ d = dict(zip(l1,l2))
 l3 = [char for char in "abcd"]
 d3 = dict(zip(l1,l3))
 
+#sort without sorted aout 12,2023
+l = [13,2,52,15,84,1,10,97]
+sorte, i = [], 0
+while len(l)!=0:
+    sorte.append(l[0])
+    for item in l:
+        if item <= sorte[-1]:
+            sorte[-1] = item
+    l[:] = [item for item in l if item not in sorte]
+    i+=1
+        
+        
+
+##a, b = ([1,2]), ([3,4])
+##print(id(a))
+##a = a%b
+##print(id(a))
+    
+
+a, b = "is", "good"
+print(a,id(a))
+a = a+b
+print(a,id(a))
+
+mylist = [number for number in range(5)]
+print(mylist[1:4:2])
+
+from itertools import permutations, combinations
+perms = list(permutations([1,2,3,4,5],2))
+combs = list(combinations([1,2,3,4,5],2))
+my_combs = list(permutations([1,2,3,4,5],2))
+for item in my_combs:
+    for item1 in [_ for _ in my_combs if _!=item]:
+        if set(item)==set(item1):
+            my_combs.remove(item1) #removing item1 gives proper output, removing item gives wrong output
+##>>> my_combs
+##[(1, 3), (1, 5), (2, 1), (2, 4), (3, 1), (3, 2), (3, 5), (4, 1), (4, 3), (5, 1), (5, 2), (5, 4)]
+##>>> perms
+##[(1, 2), (1, 3), (1, 4), (1, 5), (2, 1), (2, 3), (2, 4), (2, 5), (3, 1), (3, 2), (3, 4), (3, 5), (4, 1), (4, 2), (4, 3), (4, 5), (5, 1), (5, 2), (5, 3), (5, 4)]
+##>>> combs
+##[(1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5)]
+
+
+    

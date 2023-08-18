@@ -20,15 +20,31 @@ class UsingRecursion:
         if n<=1:
             return 1
         else:
-            return self.factorial(n-1)*n   
+            return self.factorial(n-1)*n
+    def power(self, raised):
+        if raised <=1:
+            return self.number
+        else:
+            return self.number*self.power(raised-1)
 ur = UsingRecursion()
 
 class WithoutRecursion:
     def __init__(self, number=6):
         self.number = number
+    def factorial(self):
+        fact = 1
+        for i in range(1,self.number+1):
+            fact = i*fact
+        return fact            
     def fibb(self):
-        x,y,l = 0,1,[] #do later solution underneath
-        pass    
+        x,y,l = 0,1,[0] #do later solution underneath
+        def innerfibb(x,y):
+            y,x = x+y, y
+            return x,y
+        for i in range(self.number-1):
+            x,y = innerfibb(x,y)
+            l.append(x)
+        return l
 wr = WithoutRecursion()
 
 class WhileExamples:
@@ -184,5 +200,11 @@ fe = ForExamples()
 ##    factorswr(quotientwr)
 
 
-
+def factorial(n):
+    fact = 1
+    for i in range(1,n+1):
+        fact = i*fact
+    return fact
+       
+       
 

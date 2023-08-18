@@ -131,4 +131,34 @@ class DSOperations:
         
 dso = DSOperations()
 dso1 = DSOperations([number for number in range(4,7)],[number for number in range(3)])
-       
+
+class Conversions:
+    "converting one type of data to another"
+    def __init__(self, n=12341234, l = [number for number in range(10)],s="1234"):
+        self.n = n
+        self.l = l
+        self.s = s
+    def number_to_list(self): #INCOMPLETE aout 12, 2023
+        l, n = [], self.n
+        i = 0
+        while n%10!=0:
+            l.append(n%10)
+            n = n//10            
+            i+=1
+        #return l
+        return "".join(str(item) for item in list(reversed(l)))
+    def string_to_integer(self):
+        #ord() works only on positive integer and takes strings only as input
+        pass
+        
+c = Conversions()
+s = "1234"
+
+for char in s:
+    print(ord(char)-ord("0"))
+    
+l1, l2 = tuple([1,2]), tuple([3,4]) #+ operator works on list, string, tuple but not sets
+l1 = l1+l2
+print(l1+l2,l1,l2, type(l1+l2),type(l1)) #modified the string in place?
+l1 = l1*4
+print(l1, type(l1))

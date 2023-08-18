@@ -2,8 +2,9 @@
 
 class IntegerOperations:
     "this class will contain operations on integers"
-    def __init__(self, n):
-        self.n = n        
+    def __init__(self, n=11, upper = 36):
+        self.n = n
+        self.upper = upper
     def factorial_while(self):
         global factw #use of global variable to use a variable declared outside the class
         while self.n!=1:
@@ -24,14 +25,60 @@ class IntegerOperations:
     def roman_to_decimal(self):
         "roman to decimal"
         pass
-io = IntegerOperations(6)
+    def factors(self):
+        factors = []
+        up, i = self.upper, 1
+        while quotient!=1 and remainder!=0:        
+            for number in range(1,self.upper+1):
+                if self.upper%number==0:
+                    factors.append(number)
+            pass
+        return factors
+    def prime(self): #aout 13
+        "check if n is prime or not"
+        for i in range(2,self.n+1):
+            if self.n%i == 0:
+                break
+        if i == self.n:
+            return (self.n, "is a prime number")
+        else:
+            return i
+    def prime_numbers_in_a_range(self):
+        all_prime = []
+        for number in range(1,self.upper+1):
+            for i in range(2,number+1):
+                if number%i == 0:
+                    break
+                    
+        return all_prime 
+    def prime_factorization(self, number):
+        pass
+io = IntegerOperations(11,360)
 
 class FindCombinations:
-    def __init__(self, n=7, l=[number for number in range(50)]):
+    def __init__(self, n=27, l=[number for number in range(50)]):
         self.n = n
         self.l = l
-    def make7(self):
-        pass
+    def make27_no_repetitions(self): #aout 13
+        combs = []
+        for first in self.l:
+            for second in [number for number in self.l if number!=first]:
+                if first+second == self.n:
+                    this_comb = [first, second]
+                    combs.append(this_comb)
+        for item in combs:
+            for item1 in [_ for _ in combs if _!=item]:
+                if set(item)==set(item1):
+                    combs.remove(item1)
+        return combs                    
+    def make27_repetitions_allowed(self):
+        combs = []
+        for item in self.l:
+            for item1 in self.l:
+                for item2 in self.l:
+                    if item+item1+item2 == self.n:
+                        combs.append([item,item1,item2])       
+        return combs
     def indices_of_2_making_number(self,l=[number for number in range(50) if number%2!=0]):
         #leetcode problem no 1
         for i in range(len(l)):
@@ -163,6 +210,7 @@ while n!= 6-2:
 
 factw = 1
 d=d1={}
+
 
             
         

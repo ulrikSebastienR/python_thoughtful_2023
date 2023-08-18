@@ -12,6 +12,7 @@ third = [number for number in range(100,200,10)]
 #define via one liner list comprehension
 dx = {k:v for k, v in zip(first, second)}
 dv = {10:"a",51:"ab",30:"ba",40:"ca",5:"aca"}
+#print(dv.get(100,"e")) #output "e" as string dictionary dv does not have any key 100 so get returns its default value
 
 class DictionariesLearning:
     "various common operations on dictionaries"

@@ -1,8 +1,8 @@
-import ds_operations
+import ds_operations_et_conversions as ds
 global_variable = 20
 
 class UsefulHacks:
-    def __init__(self, l=ds_operations.dso.ds1,s=ds_operations.dso.s): #passing values from another file
+    def __init__(self, l=ds.dso.ds1,s=ds.dso.s): #passing values from another file
         self.l = l
         self.s = s
         self.gv = global_variable #a class can access outside(current scope's) variable directly
@@ -35,7 +35,7 @@ class UsefulHacks:
 uh = UsefulHacks()
 
 class UsefulKeywords:
-    "not, in, is, id, del"
+    "not, in, is, id, del, hash"
     def __init__(self,l=[],char="s",sen="ambition de quoi, croire en quoi, sa paix du moment, pas la recherche de quelque chose incluant la paix"): 
         self.l = l
         self.char = char
@@ -44,6 +44,12 @@ class UsefulKeywords:
         return input_char if input_char not in self.sen else not self.l
     def not_et_in2(self,input_char):        
         return ("empty" if input_char not in self.sen else not "not empty")
+    def assignment_and_id(self):
+        "l1 = l2 makes l1 and l2 to share same id making changes in one reflected in another"
+        l1 = [1,2,3]
+        l2 = [1,2,3]
+        l3 = l1
+        print(id(l1), id(l2), id(l3)) #139928290137352 139928274760904 139928290137352
 uk = UsefulKeywords()
 
 class BuiltIns:
@@ -52,6 +58,12 @@ class BuiltIns:
         self.l = l
         self.char = char
         self.sen = sen
+    def ord_to_convert_string_to_number(self, s = "1234"):# problem statement NOT CLEAR YET 
+        "ord gives ascii value and can be used to convert numbers input as string without using int"
+        l = []
+        for char in s:
+            l.append(ord("char")-ord("0"))
+        return l        
 bi = BuiltIns()
 
 class ExamplesToRevise:
@@ -74,7 +86,7 @@ class HacksExamples:
         
 #ones that can't be written in a class
 #use of next
-dso = ds_operations.DSOperations()
+dso = ds.DSOperations()
 def nextsublists(t=(1,2,3)):
     sublists = []
     for i in range(len(t)+1):    
@@ -86,22 +98,8 @@ def nextsublists(t=(1,2,3)):
             yield sublists
 
 l = iter(nextsublists())    #now you can do next(l) to see items one by one, useful when you want to see how a loop is running
-#most hacks are from problems posted on twitter by benjamin benett alexander and rohan paul
-print([1,2,3] and [1,2,3]) #and returns the first false value or the last true value
-print([1,2,3] is [1,2,3]) # is checks if ids of the objects are same
-print([1] and 2 and 0) #checking more than two values with and
-print(0 or 1) #first true object or last false object if all are false
-print(0 or [] or 2)
-print(([1,2,3]))#parenthesis doesnt make it a tuple
-print(round(1.5))#if value is exactly in middle rounds up to the nearest even number hence 2
-print(round(2.5))#ans again 2
-#a function picks up global variable itself
-def multiply(x):
-    x*=1
-    return value*10 #value is undefined local variable hence error
-value = 10
-value = multiply(10) #function will take outside global variable and process it
 
 
+            
       
 
