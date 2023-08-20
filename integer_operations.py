@@ -25,17 +25,28 @@ class IntegerOperations:
     def roman_to_decimal(self):
         "roman to decimal"
         pass
-    def factors(self):
+    def factors_without_repetition(self,number):#auot 20 INCOMPLETE
         factors = []
-        do,i = self.upper, 0
-        while do!=1:
-            for number in range(2,do+1):
-                if do%number==0:
+        for i in range(2,number+1):
+            if number%i==0:
+                factors.append(i)
+                number == number//i
+            if number==1:
+                break
+        return factors
+    def factors_repetions_allowed(self,number): #auot 20 INCOMPLETE
+        factors = []
+        def f(number):
+            for i in range(2,number+1):
+                if number%i==0:
+                    factors.append(i)
+                    number==number//i
                     break
-                factors.append(number)
-                do,remainder = divmod(do,number)
-            i+=1        
-        return do,remainder, factors
+            if number==1:
+                return factors
+            else:
+                return f(number)            
+        #return factors
     def prime(self): #aout 13
         "check if n is prime or not"
         for i in range(2,self.n+1):
