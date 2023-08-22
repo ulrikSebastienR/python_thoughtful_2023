@@ -1,5 +1,17 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 # an empty hash means starting of a new snippet
+#aout 22,2023 slicing
+l = [1,2,3,4]
+#print(l[4])#IndexError: list index out of range
+#print(l[-1])#4, reverse indices start from -1
+#print(l[-4])#1
+#print(l[1:4:-1])#[]
+#print(l[0:5])#[1,2,3,4]
+#print(l[5:0])#[]
+#print(l[-5])#index out of range
+#
+#aout 22,2023
+#print(10+int("5"))#15
 #
 #print(not None) #True
 #print(not None is False) #True BECAUSE
