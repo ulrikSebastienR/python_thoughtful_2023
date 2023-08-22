@@ -25,28 +25,61 @@ class IntegerOperations:
     def roman_to_decimal(self):
         "roman to decimal"
         pass
-    def factors_without_repetition(self,number):#auot 20 INCOMPLETE
+    def factors_without_repetition(self,number):#auot 20
+        "does not work for numbers such as 4, 12"
         factors = []
         for i in range(2,number+1):
+            print(number, id(number))
             if number%i==0:
                 factors.append(i)
-                number == number//i
+                number = number//i #key is to use assignment operator not equality operator, equality operator is only for comparison 
+                print(id(number))
+                print(number)
             if number==1:
                 break
         return factors
-    def factors_repetions_allowed(self,number): #auot 20 INCOMPLETE
+    def incomp_factors_repetitions_allowed_for(self,number): #aout 22 INCOMPLETE
         factors = []
-        def f(number):
+        def inner(number):
             for i in range(2,number+1):
                 if number%i==0:
                     factors.append(i)
-                    number==number//i
+                    number = number//i
                     break
-            if number==1:
-                return factors
-            else:
-                return f(number)            
-        #return factors
+            return number
+        number = inner(number)
+        print(number)
+        if number ==1:
+            return factors
+        else:
+            inner(number)
+        return factors
+    def incomp_factors_repetitions_allowed_while(self,number): #aout 22 INCOMPLETE
+        factors = []
+        return factors
+    def factors_without_repetitions_while(self,number): #aout 22 
+        factors, i = [], 2
+        while (number!=1): #parenthesis change entire operation of while, try without parenthesis while number!=1
+            print(number)
+            if number%i==0:
+                factors.append(i)
+                number = number//i
+                print(number)
+            i+=1 
+        return factors   
+        
+    
+    def incomp_factors_repetitions_allowed(self,number): #auot 20 INCOMPLETE
+        factors = []        
+        for i in range(2,number+1):
+            if number%i==0:
+                factors.append(i)
+                number=number//i                    
+                #break
+                continue
+        if number==1:
+            print(factors)                                        
+        return factors            
     def prime(self): #aout 13
         "check if n is prime or not"
         for i in range(2,self.n+1):
@@ -226,7 +259,9 @@ factw = 1
 d=d1={}
 
 
-            
+
+
+
         
 
 

@@ -5,9 +5,52 @@
 class ForVsWhile:
     def __init__(self):
         pass
+    def for1(self):
+        n=0
+        while n!=3:
+            print("hi")
+            for i in range(1,30):
+                if i%2==0: #output hi 200 400 600 800 till 2800
+                    print(i*100)#control goes to for loop and then goes back to while loop
+                    #break
+            n+=1    
+    def for2(self):
+        n=0
+        while n!=3:
+            print("hi")
+            for i in range(1,30):
+                if i%2==0: #output hi 200 hi 200 hi 200
+                    print(i*100)
+                    break
+            n+=1 #if you name both functions as for2 python executes second function only due to dynamic allocation
+    def while1(self):
+        i=0
+        while i!=3:
+            print("hi")
+            if i%2==0:
+                print(i*100)
+                #break
+            i+=1
+    def while2(self):
+        i=0
+        while i!=3:
+            print("hi")
+            if i%2==0:
+                print(i*100)
+                break#output hi 0 as break truncates the loop
+            i+=1
+fw = ForVsWhile()
+        
 class BreakPassContinue:
     def __init__(self):
         pass
+    def continue1(self):
+        for i in range(10):
+            if i%2==0:
+                print(i)
+                continue
+                print(i**2)#continue takes control back to start of the program ignoring statements after continue
+bpc = BreakPassContinue()
 
 class Make7:
    # n = 7 class variable

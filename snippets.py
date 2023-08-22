@@ -24,8 +24,12 @@
 ##    c = functools.reduce(lambda x,y : x+y, element)
 ##print(c)
 #
-def my_fun():
-    Ellipsis
+##def my_fun():
+##    Ellipsis
+#
+def dict_fun():
+    dz = {1:"Java",2.0:"Python",2:"JavaScript"} #output Javascript
+    return dz, dz[2.0] #https://twitter.com/RealBenjizo/status/1693684908198084746?s=20
 #
 ##de = dict(enumerate([10,20,30],1))
 ##print(20 in de) #False
@@ -76,6 +80,9 @@ my_bool = True or False
 my = not my_str
 #print(my == my_bool)
 #
+##z, g = 4,4 #both share same id
+##print(z is g) #True
+#
 d = dict(a=1, b=2)
 #print(2 in d) #output false
 #print("b" in d) #output true
@@ -112,7 +119,15 @@ a, b = (1,3), (3,1)
 ##print(a!=b or set(a)==set(b)) #true
 #
 
-               
+##x = [1,2,3] #x and y do not share same id as assigned separately
+##y = [1,2,3]
+##a = "hello"
+##b = "hello"
+###print(x is y, a is b) #False, True
+#
+##x,y = [1,2,3],[1,2,3]
+##a,b = "hello","hello"
+##print(x is y, a is b) #False, True               
 
 
 
