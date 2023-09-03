@@ -1,4 +1,5 @@
 #all extra trials such as without recursion and classes for the same function are at the end of this file
+factrs = [] #factors initialized for recursion problem
 
 class IntegerOperations:
     "this class will contain operations on integers"
@@ -24,8 +25,56 @@ class IntegerOperations:
         pass
     def roman_to_decimal(self):
         "roman to decimal"
-        pass
-    def factors_without_repetition(self,number):#auot 20
+        pass     
+    def factors_while(self,number):
+        "finds factors of a number both when factors are repeated or not"
+        factors, i = [], 2
+        while (number!=1):
+            if number>i:
+                if number%i==0:
+                    factors.append(i)
+                    number=number//i
+            elif number<i:
+                i=2
+                if number%i==0:
+                    factors.append(i)
+                    number=number//i
+            i+=1        
+        return factors
+    def factors_using_recursion_et_for(self,number):
+        "factors using recursion, both repeated and not repeated factors"
+        #factors = [] will be assigned outside this function
+        #factrs = [] #assigning here will produce errors
+        if number==1:
+            return factrs
+        else:
+            for i in range(2,number+1):
+                if number%i==0:
+                    factrs.append(i)
+                    number=number//i
+                    break
+            return self.factors_using_recursion_et_for(number)
+    def incomp_2_factors(self,number):#hangs when number is 4 or 12
+        factors = []
+        while (number!=1):
+            for i in range(2,number):
+                if number%i==0:
+                    factors.append(i)
+                    number=number//i
+        return factors    
+    def incomp_1_factors_using_for(self,number):#INCOMPLETE
+        factors = []
+        def inner(number):
+            for i in range(2,number+1):
+                if number%i==0:
+                    factors.append(i)
+                    number=number//i
+                    print("inner",self.incomp_1_factors_using_for(number))
+        if number ==1:
+            return factors
+        else:
+            inner(number)      
+    def previous_attempts_factors_without_repetition(self,number):#auot 20
         "does not work for numbers such as 4, 12"
         factors = []
         for i in range(2,number+1):
@@ -37,6 +86,18 @@ class IntegerOperations:
                 print(number)
             if number==1:
                 break
+        return factors   
+    def incomp_factors_repetitions_allowed_while(self,number): #aout 20 INCOMPLETE
+        factors = []
+        while (number!=1):
+            #i = 2
+            print(i)
+            if number%i==0:
+                factors.append(i)
+                number=number//i
+                print(number)
+            #i+=1
+            print(i**2)
         return factors
     def incomp_factors_repetitions_allowed_for(self,number): #aout 22 INCOMPLETE
         factors = []
@@ -53,22 +114,7 @@ class IntegerOperations:
             return factors
         else:
             inner(number)
-        return factors
-    def incomp_factors_repetitions_allowed_while(self,number): #aout 22 INCOMPLETE
-        factors = []
-        return factors
-    def factors_without_repetitions_while(self,number): #aout 22 
-        factors, i = [], 2
-        while (number!=1): #parenthesis change entire operation of while, try without parenthesis while number!=1
-            print(number)
-            if number%i==0:
-                factors.append(i)
-                number = number//i
-                print(number)
-            i+=1 
         return factors   
-        
-    
     def incomp_factors_repetitions_allowed(self,number): #auot 20 INCOMPLETE
         factors = []        
         for i in range(2,number+1):
@@ -100,6 +146,20 @@ class IntegerOperations:
         return all_prime 
     def prime_factorization(self, number):
         pass
+    def previous_attempts_factors_without_repetitions_while(self,number): #aout 22, SEMI COMPLETE
+        factors, i = [], 2 
+        try:
+            while (number!=1): #parenthesis change entire operation of while, try without parenthesis while number!=1
+                print(number)
+                if number%i==0:
+                    factors.append(i)
+                    number = number//i
+                    print(number, factors)
+                i+=1 #when 12 is passed, i has moved to 4 and hence program gets stuck in endless loop
+            return factors
+        except: #crashes if numbers like 4, 12 passed, couldnt do system exit
+            SystemExit("please dont pass numbers having repeated factors like 4 or 12")
+            return
 io = IntegerOperations(11,360)
 
 class FindCombinations:
@@ -257,8 +317,6 @@ while n!= 6-2:
 
 factw = 1
 d=d1={}
-
-
 
 
 

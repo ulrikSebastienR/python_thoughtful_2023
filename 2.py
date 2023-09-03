@@ -1,3 +1,5 @@
+
+
 #you need to close a file or open with WITH, "w" creates a file or overwrites existing, "a" appends existing file
 with open("blank.tex", "w") as f:
     f.write("written through python") #no need to close explicitly

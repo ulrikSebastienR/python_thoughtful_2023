@@ -48,11 +48,47 @@ class StringOperations:
         l_reversed = []
         l_reversed.extend(l[len(l)-1-i] for i in range(len(l)))
         return "".join(l_reversed)
+    def reverse_string2(self):
+        rev = []
+        for i in range(1,len(self.s)+1):
+            rev.append(self.s[-i])        
+        return "".join(char for char in rev)
+    def count_characters(self,s="random in monde"):
+        freq = {}
+        for item in s:
+            i=0
+            for item1 in s:
+                if item==item1:
+                    i+=1
+            freq.update({item:i})
+        return freq
+    def anagrams(self,s1="madam",s2="madamoiselle",s3="amdam"):
+        "use dictionaries, anagrams are strings with exact same alphabets but different order"
+        l,output = [], []
+        #if set(s1)==set(s3): #set wont count the duplicates
+        freqs1 = self.count_characters(s1)
+        freqs2 = self.count_characters(s2)
+        freqs3 = self.count_characters(s3)
+        l.extend([freqs1,freqs2,freqs3])        
+        for item in l:
+            i=0
+            for item1 in l:
+                if item==item1:
+                    i+=1
+            if i>1:
+                output.append(item)
+        return output
+##        if freqs1 == freqs3:#PENDING need to make it automatic
+##            return f"{s1} and {s3} are anagrams"
+    def reversed_anagrams_sep1(s1="madam",s2="madam"):
+        pass
+    def one_string_is_substring_of_another_sep1(s1 = "madam", s2='madamoiselle'):
+        pass        
     def sort_string(s):
         "sorted(s) sorts only alphabets of the string, create list of alph & join after sorting"
         
 
-    def reverse_string2(self):
+    def reverse_string3(self):
         "cant reverse a string using reversed(s)"
         l = []
         for i in range(len(self.s)-1,-1,-1): #-1 end point of range because if you put 0, range will not take first alphabet as 0 wont be included
@@ -226,6 +262,12 @@ class LongestSubstringWithNoRepetitions:
 
 lsnr = LongestSubstringWithNoRepetitions()
 
+##s = "madam"
+###reversed
+##rev = []
+##for i in range(1,len(s)+1):
+##    rev.append(s[-i])
+###anagram strings
 
 
 

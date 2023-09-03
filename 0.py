@@ -1,4 +1,25 @@
 #for a number in list do, find all combinations that make that number
+from itertools import permutations, combinations
+l = [number for number in range(1,6)]
+perm52 = list(permutations(l,2))
+comb52 = list(combinations(l,2))
+my_perms = []
+my_combs = my_perms #this code is right but problem is my_perms will also change as both my_combs and my_perms share the same id
+for item in l: #use deep copy
+    for item1 in [_ for _ in l if _!=item]:
+        my_perms.append((item,item1))
+
+for item in my_combs:
+    for item1 in [_ for _ in my_perms if _!=item]:
+        if set(item)==set(item1):
+            my_combs.remove(item1)        
+
+#phone number from alphabets, leet code problem
+def phone_alphabets_to_digits(number_string="aeg"):
+    import string
+    ph_no = [1,3,2]
+    d = {2:["a",'b','c'],3:['d','e','f']}
+    return int("".join(str(_) for _ in ph_no))
 
 def combinations_pour_a_list(user_list = [number for number in range(10)]):
     d = {}

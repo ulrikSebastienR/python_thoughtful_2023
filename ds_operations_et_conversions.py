@@ -149,6 +149,15 @@ class Conversions:
         return "".join(str(item) for item in list(reversed(l)))
     def string_to_integer(self):
         #ord() works only on positive integer and takes strings only as input
+        l = []
+        for item in s:
+            l.append(str(ord(item)-ord("0")))#to convert list to integer
+        return int("".join(l))
+    def list_to_integer1(self):
+        "method 1 to convert list to integer"
+        return int("".join(str(item) for item in self.l))
+    def list_to_integer2(self):
+        "method 2 to convert list to integer"
         pass
         
 c = Conversions()

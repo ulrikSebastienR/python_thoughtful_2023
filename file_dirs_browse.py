@@ -45,7 +45,7 @@ class FileOperations:
         return "".join(pattern)
     def proper(self):
         f = open(self.file)
-        return f.read() 
+        return f.read() #read(-1) or read() will read entire file into a string while read(5) will read 5 characters from start no but lines are not separated
         f.close()
     def contents_proper_using_with(self): #output contents in a string
         with open(self.file) as f:
@@ -53,7 +53,7 @@ class FileOperations:
             return contents
     def read_lines(self): #output all lines in a list
         with open(self.file) as f:
-            return f.readlines()  
+            return f.readlines()#reads entire file into a list where items are different lines
     def lines(self):
         chars= lines= words = []
         f = open(file) #note works for both self.file and file as a class can directly take outside variable
@@ -141,6 +141,11 @@ for root, dirs, files in os.walk(os.getcwd()):
                 
 #print(list(s),"\n", len(s))          
 
+path1 = "/home/normal/python_thoughtful/aujourdhui.py"
+with open(path1) as f:
+    x = f.read().splitlines()
+    
 
+#print(os.path.isfile(path1))
                                    
                                    
