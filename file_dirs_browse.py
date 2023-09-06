@@ -1,4 +1,5 @@
-import os
+import os, pathlib, glob
+path = '/home/normal/python_thoughtful/dir_pour_experimentation'
 
 class BrowseDirectory:
     "browses a directory to list all files in the directory"

@@ -127,6 +127,23 @@ class DSOperations:
     def set_inside_set(self):
         "though set can remove duplicates but what if your ds has all sets to checked for duplicates error thrown is unhashable type"
         return
+    def duplicates_single_string(self,check="madamoiselle"):
+        duplicates, duplicate_items = {},[]
+        for item in self.s:
+            i = 0
+            for item1 in self.s:
+                if item==item1:
+                    i+=1
+            if i>1:
+                duplicates.update({item:i})
+        for k,v in duplicates.items():
+            if v>1:
+                duplicate_items.append(k) #only duplicate items
+        print(duplicates_items) #we would be modifying duplicates_items to reduce frequency of each item by 1 and then update the original string
+        list_after_removing_one_duplicate = [] #PENDING
+        for item in duplicates_items:#shallow vs deep copy, make a deep copy
+            pass
+        return duplicates, duplicate_items
    
         
 dso = DSOperations()

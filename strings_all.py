@@ -128,6 +128,9 @@ class StringOperations:
                     arranged.append(k)
         answer = "".join(arranged)        
         return d, valuesof_s,arranged, answer
+    def duplicates_sep3(self,check="madamoiselle"):
+        pass
+        
 so = StringOperations()
 
 class SentenceOperations:

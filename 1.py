@@ -1,12 +1,45 @@
 s = "the unbearable weight of massive talent"
 
+lofs = list(s)
+lofs1 = list(s)
+dups = {}
+for item in s:
+    i =0
+    for item1 in s:
+        if item == item1:
+            i+=1
+            dups.update({item:i})
+for item in dups.keys():    
+    for k,v in dups.items():
+        if v>1:
+            try:
+                lofs.remove(item)
+            except:
+                pass
+#doing item vs item1, using dictionaries and recursion to remove duplicates, for vs while loop for removing duplicates
+
+for item in lofs1:
+    i = 1
+    while item.count!=1:
+        try:
+            lofs1.remove(item)
+            i+=1
+        except:
+            pass
+        
+    
+            
+            
+            
+
 def sort_string_list_by_length(l = ["great", "bien", "toute suite", "maitenant", "cest la vie"]):
     d, sorteddict = dict(), {}
     for item in l:
         d[len(item)] = item
     sortedstring = sorted(list(d.keys()))
     for k, v in d.items():
-        for i in range(len(sortedkeys))):
+        for i in range(len(sortedkeys)):
+            pass
     
     return d
 

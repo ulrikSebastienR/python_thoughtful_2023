@@ -60,12 +60,18 @@ class LeetCodeProblems:
                 else:
                     pass
         return temp
-      
-        
-        
-
+                
 lcp = LeetCodeProblems()
 
+class LeetCodeSolutions:
+    "others solutions to the leetcode problems not mine"
+    def __init__(self):
+        self.nums = [num for num in range(20)]
+    
+    def two_sum(self):
+        pass
+        
+lcs = LeetCodeSolutions()
 
 
         
