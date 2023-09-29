@@ -41,6 +41,38 @@ class IntegerOperations:
                     number=number//i
             i+=1        
         return factors
+    def factors_while_repeated_sep15(number=12):
+        "works for prime, duplicate factors, all kinds"
+        i,l = 1, []
+        while number!=1:
+            i +=1
+            for _ in range(2,number+1): #number+1 ensures program will work for prime numbers as well
+                if number%_ == 0:
+                    number = number//_
+                    l.append(_)
+        return l, _, number
+
+    def factors_all_1_recursion(number=12, l = []):
+        "method 1 works for prime, duplicate factors, all kinds"
+        if number==1:
+            return l
+        else:
+            for i in range(2,number+1):
+                if number%i ==0:
+                    l.append(i)
+                    number = number//i
+            return factors_repeated_recursion(number,l)
+
+    def factors_all_recursion(number=11, l = []):
+        "works for prime, duplicate factors, all kinds"
+        for i in range(2,number+1):
+                if number%i ==0:
+                    l.append(i)
+                    number = number//i
+        if number==1:
+            return l
+        else:        
+            return factors_repeated_recursion(number,l)
     def factors_using_recursion_et_for(self,number):
         "factors using recursion, both repeated and not repeated factors"
         #factors = [] will be assigned outside this function
@@ -160,6 +192,56 @@ class IntegerOperations:
         except: #crashes if numbers like 4, 12 passed, couldnt do system exit
             SystemExit("please dont pass numbers having repeated factors like 4 or 12")
             return
+    def lcm_sep25(self, a = 15, b=2): 
+        larger = a if a>b else b
+        for i in range(larger,1000*larger):
+            if i%a==0 and i%b==0:
+                return i               
+    def lcm_multiple_nos(self,a=7,b=3,c=2): 
+        "lcm of three numbers"
+        larger = max(a,b,c)
+        for i in range(larger,1000*larger):
+            if i%a==0 and i%b==0 and i%c==0:
+                return i
+        return None #this return statement will be discarded as function will take the first statement it encounters
+    def lcmofarray(self, a=[num for num in range(10,2,-2)]): 
+        "lcm of numbers presented in a list"
+        larger = max(a)
+        for i in range(larger,1000*larger):
+            for item in a:
+                if i%item!=0:                    
+                    break
+            if item == a[-1]: #match last item of list to see if entire list has been traversed
+                return item, i        
+    def hcfthreenos(self,a1=13,b=15,c=41): 
+        smaller = min(a1,b,c)
+        for i in range(2,smaller):
+            if a1%i==0 and b%i==0 and c%i==0:
+                return i        
+        return "no factor exists for these numbers" #tested for 13,15,41        
+    def hcfarray(self, l=[num for num in range(40,4, -3)]): #INCOMPLETE
+        smaller = min(l)
+        for i in range(2,smaller+1): #include smaller too
+            for item in l:
+                if item%i != 0:
+                    break
+            return item, i
+    def smallestwithoutmin(self, a=30,b=15,c=45): 
+        "extends similarly to an array"
+        smallest = a
+        if b<smallest:
+            smallest = b
+        elif c<smallest:
+            smallest=c
+        return smallest
+    def largestwithoutmax(self, a=[21,23,89,1,3,81,41,71]): 
+        largest = a[0]
+        for item in a:
+            if item>largest:
+                largest = item
+        return largest
+    
+    
 io = IntegerOperations(11,360)
 
 class FindCombinations:
@@ -318,7 +400,57 @@ while n!= 6-2:
 factw = 1
 d=d1={}
 
+#sep 9
+def prime(number=10):
+    for i in range(2,number):
+        if number%i==0:
+            break
+        if i==number-1:
+            print(i,number)
+def prime_in_a_range(upper=1111):
+    l = [2]
+    for number in range(2,upper+1):
+        for i in range(2,number):
+            if number%i==0:
+                break
+            if i == number-1:
+                l.append(number)
+    return l
+def factorization_prime_no_repeats(to_factor):
+    l = []
+    for num in prime_in_a_range():
+        if to_factor%num == 0:
+            l.append(num)
+    return l
+def repetitions_allowed_prime_factorization(to_factor):
+    l = []
+    if to_factor in prime_in_a_range():
+        return l.append(to_factor)
+    else:
+        for num in prime_in_a_range():
+            if to_factor%num == 0:
+                l.append(num)
+                break
+        to_factor = to_factor//num
+        return repetitions_allowed_prime_factorization(to_factor)
 
+def sep14(to_factor=24):
+    l = []
+    for num in prime_in_a_range():
+        l.append(num)
+    return l
+
+
+                
+            
+    
+
+        
+            
+         
+    
+            
+                
 
         
 

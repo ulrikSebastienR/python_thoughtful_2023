@@ -188,3 +188,88 @@ l1 = l1+l2
 print(l1+l2,l1,l2, type(l1+l2),type(l1)) #modified the string in place?
 l1 = l1*4
 print(l1, type(l1))
+
+def only_one_duplicates(s="the unbearable weight of massive talent"):
+    "only one occurence of a duplicate is removed, #sep7"
+    lofs = list(s)
+    for item in dups.keys():    
+        for k,v in dups.items():
+            if k==item and v>1: #lofs = [] if only v>1
+                try:
+                    lofs.remove(item)
+                except:
+                    pass
+    return dictofduplicates(lofs)
+
+def remove_all_duplicates_while(s="the unbearable weight of massive talent"):
+    "so that each character/item appears only once"
+    lofs1 = list(s)
+    for item in lofs1:
+        i = 0
+        while (lofs1.count(item)!=1):
+            i+=1    #provided counter at the starting of while loop to avoid confusion
+            lofs1.remove(item)
+    return dictofduplicates(lofs1)      
+        
+def dictofduplicates(s="the unbearable weight of massive talent"):
+    "to verify if all the duplicates have been removed"
+    dups = {} 
+    for item in s:
+        i=0
+        for item1 in s:
+            if item==item1:
+                i+=1
+        dups.update({item:i})
+    return dups
+        
+def remove_all_duplicates_combined(s="the unbearable weight of massive talent"):               
+    "combination of count duplicates and while loop, keep only one occurence of each character"
+    dups = {}
+    for item in s:
+        i = 0
+        for item1 in s:
+            if item==item1:
+                i+=1
+        dups.update({item:i})
+    if max(dups.values())==1:
+        return "".join(char for char in dups.keys())
+    else:
+        allchars = list(dups.keys())
+        for item in allchars:
+            i = 0
+            while (allchars.count(item)!=1):
+                allchars.remove(item)
+                i +=1
+        return "".join(char for char in allchars)      
+
+
+def recursion_to_remove_all_duplicates(s="the unbearable weight of massive talent"):
+    "combination of count duplicates and delete one by one"#INCOMPLETE
+    dups = {}
+    for item in s:
+        i = 0
+        for item1 in s:
+            if item==item1:
+                i+=1
+        dups.update({item:i})        
+    if max(dups.values())==1:
+        return "".join(char for char in dups.keys())
+    else: 
+        print(dups)
+        allchars = list(dups.keys())
+        print(allchars)
+        #return f"{id(dups)}, {id(allchars)}"
+        for item in allchars:#concurrent modification INCOMPLETE
+            print(item)
+            for k,v in dups.items():
+                if item==k and v>1:
+                    print(item)
+                    allchars.remove(item)
+        return recursion_to_remove_all_duplicates("".join(char for char in allchars))
+##        #return dups
+
+pour_duplicates = "the fireflies are all gone"
+lpd = list(pour_duplicates)
+for item in lpd:
+    for item1 in lpd:
+        pass

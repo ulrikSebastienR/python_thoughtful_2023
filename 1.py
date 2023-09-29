@@ -1,34 +1,6 @@
+#doing item vs item1, using dictionaries and recursion to remove duplicates
 s = "the unbearable weight of massive talent"
-
-lofs = list(s)
-lofs1 = list(s)
-dups = {}
-for item in s:
-    i =0
-    for item1 in s:
-        if item == item1:
-            i+=1
-            dups.update({item:i})
-for item in dups.keys():    
-    for k,v in dups.items():
-        if v>1:
-            try:
-                lofs.remove(item)
-            except:
-                pass
-#doing item vs item1, using dictionaries and recursion to remove duplicates, for vs while loop for removing duplicates
-
-for item in lofs1:
-    i = 1
-    while item.count!=1:
-        try:
-            lofs1.remove(item)
-            i+=1
-        except:
-            pass
-        
-    
-            
+      
             
             
 

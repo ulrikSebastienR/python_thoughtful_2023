@@ -1,5 +1,60 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 # an empty hash means starting of a new snippet
+#sep 29
+##my_string = "world"
+##i = "i"
+##while i in my_string:
+##    print(i, end=" ") #none as there is no "i" in my_string
+#sep 29
+##print(not None) #True
+##print(""==True) #False
+##print(not None != "") #False
+#sep 28
+##abc = [num for num in range(5)]
+##print(abc[10:]) #[], not an error
+#sep 27
+##i = 1
+##while True:
+##    if i%007=0:
+##        print(i) # ERROR: invalid token
+# sep 13
+##tuples = ((1,'a'),(2,'b'),(3,'c'))
+##my_dict = dict(tuples)
+##zipped = zip(my_dict)
+##l = list(zipped) 
+# crazy program
+##a = [1,2] #https://twitter.com/CodingComputing/status/1697870989718139095
+##b = [3,4,a]
+##a.append(b)
+##print(a) #[1, 2, [3, 4, [...]]]
+##print(b) #[3, 4, [1, 2, [...]]]
+#
+#sep 7, 2023
+##items = [1,2,3] #all three have different ids
+##numbers = [1,2,3]
+##nos = numbers.copy()
+##items[0] = 0 #does not change nos as nos is a copy of items, however changes items
+##print(items, id(items))
+##print(numbers, id(numbers))
+##print(nos, id(nos))
+##def add_value(items, value):
+##    return items + value
+##def put_value(items, value):
+##    items.append(value)
+##    return items
+##value = [4]
+##print(add_value(items,value)) #+ concatenates but does not change the original object
+##print("original items after + operator", items)
+##print(put_value(numbers,value))# appending changes a list 
+##print("original numbers after appending", numbers)
+##def plus_operator(items, value):
+##    return items + [value]
+##value = 4
+##print(plus_operator(items,value))
+##print(plus_operator(nos, value))
+##print(items)
+##print(numbers)
+##print(nos)
 #
 # sep 3
 ##mine = [1,2,3,4,5,6,] #, at the end makes no change to the list

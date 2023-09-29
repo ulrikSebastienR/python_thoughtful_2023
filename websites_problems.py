@@ -65,16 +65,19 @@ lcp = LeetCodeProblems()
 
 class LeetCodeSolutions:
     "others solutions to the leetcode problems not mine"
-    def __init__(self):
-        self.nums = [num for num in range(20)]
+    def __init__(self, nums = [num for num in range(20)], target=11):
+        self.nums = nums
+        self.target = target
     
-    def two_sum(self):
-        pass
+    def two_sum(self): #solution in app "leetcode problems"
+        num_to_index,l = {},[]
+        for i, num in enumerate(self.nums):
+            if self.target - num in num_to_index:
+                return [num_to_index[self.target - num], i]
+            num_to_index[num] = i
+        return []
         
-lcs = LeetCodeSolutions()
-
-
-        
+lcs = LeetCodeSolutions()        
     
 #use of ord to convert integers 
 ##for number in [number for number in range(12)]:
