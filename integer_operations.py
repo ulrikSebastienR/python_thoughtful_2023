@@ -219,13 +219,18 @@ class IntegerOperations:
             if a1%i==0 and b%i==0 and c%i==0:
                 return i        
         return "no factor exists for these numbers" #tested for 13,15,41        
-    def hcfarray(self, l=[num for num in range(40,4, -3)]): #INCOMPLETE
+    def hcfarray(self, l=[num for num in range(4,40, 2)]): #sep 29, 2023
         smaller = min(l)
         for i in range(2,smaller+1): #include smaller too
             for item in l:
                 if item%i != 0:
                     break
-            return item, i
+            #return item, i #37,2
+        #return item, i #40,7
+                if item == l[-1]:
+                    return i #tested for l=[num for num in range(4,40, 2)]
+            if i == smaller:
+                return "factors not possible" #tested for l=[num for num in range(40,4, -3)]
     def smallestwithoutmin(self, a=30,b=15,c=45): 
         "extends similarly to an array"
         smallest = a

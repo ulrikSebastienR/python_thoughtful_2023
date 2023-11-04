@@ -144,7 +144,21 @@ class DSOperations:
         for item in duplicates_items:#shallow vs deep copy, make a deep copy
             pass
         return duplicates, duplicate_items
-   
+    def reverse_a_string(self,to_reverse="the fireflies are all gone"): #sep 29 using inbuilt methods
+        "reversed and sorted are python's inbuilt methods while sort and reverse are list in place methods"
+        return "".join(item for item in list(reversed(to_reverse)))
+    def sort_a_string(self, sep30 = "mindfulness activates frontal lobe"): #sep 30
+        return "".join(item for item in sorted(sep30))
+    def sort_using_ord(self, sep29 = "tango libre love of JC, domi et goon"): #INCOMPLETE
+        "lists can be sorted using simple min or sorted function or ord too"
+        l = [ord(char)-ord('0') for char in sep29]
+        lsorted = [l[0]]
+        for item in l:
+            if item <= lsorted[-1]:
+                lsorted.append(item)
+                l.remove(item)
+        return lsorted, l
+       
         
 dso = DSOperations()
 dso1 = DSOperations([number for number in range(4,7)],[number for number in range(3)])
@@ -179,6 +193,8 @@ class Conversions:
         
 c = Conversions()
 s = "1234"
+
+
 
 for char in s:
     print(ord(char)-ord("0"))
@@ -273,3 +289,9 @@ lpd = list(pour_duplicates)
 for item in lpd:
     for item1 in lpd:
         pass
+    
+
+
+
+
+    

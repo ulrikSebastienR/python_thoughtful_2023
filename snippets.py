@@ -1,5 +1,49 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 # an empty hash means starting of a new snippet
+#nov 3
+#l = [1,2, ,4] #invalid syntax 
+#print(l)
+#print(" ".join(str(item) for item in l))
+#
+#nov 1
+l1, l2 = [], []
+d1, d2 = {},{}
+s1, s2 = set(), set()
+print([]==[], id(l1), id(l2), l1==l2) #True 139746680490056 139746680489544 True
+print({}=={}, id(d1), id(d2), s1==s2) #True 139746674370816 139746665829288 True
+print(set()==set(), id(s1), id(s2), s1==s2) #True 139746678954920 139746665687752 True
+#oct 15
+##t = (1,2,[3,4],(5),{6,7,8})
+##print(t[3]) #5, not the tuple (5)
+#oct 14
+#c = dict(a=23,b=89,b=66) #keyword argument repeated, cant assign dictionaries with keys repeated
+##l14 = [20,40,60,80]
+##l14[1:4] = []
+##print(l14)
+#
+##c = {1:23, 2:89,2:66}
+##print(c.pop(2), c) #66 {1: 23}
+#
+#oct 3
+##x = ['1']
+##x.extend('234')
+##print(x) #['1', '2', '3', '4']
+#oct 2
+#print([1,2]*-1) #[]
+#sep 30
+##print([1,2,3]*3) #[1, 2, 3, 1, 2, 3, 1, 2, 3] #123123123 #(1, 2, 3, 1, 2, 3, 1, 2, 3)
+##print('123'*3)
+##print((1,2,3)*3)
+##print({1,2,3}*3) #error 
+#sep 30
+##t1,t2 = (1,2,4,3),(1,2,3,4)
+##print(t1<t2)#False
+#sep30
+##my_string = "mindfulness activates frontal lobe and makes your decisions better"
+##for i in range(len(my_string)):
+##    my_string[i].upper()
+##    print(my_string[i], " ", my_string[i].upper())
+##print(my_string) #no change as string is immutable
 #sep 29
 ##my_string = "world"
 ##i = "i"

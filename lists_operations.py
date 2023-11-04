@@ -470,5 +470,85 @@ for item in my_combs:
 ##>>> combs
 ##[(1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5)]
 
+class ProbablyRepeatedPrograms:
+    "Programs that are most probably being revisited only"
+    enteredl = [-25,71,29,15,312,91,91,13,29,9,17,28,92,21]#class variable
+    enteredstr = "tango libre"
+    def __init__(self, s="the son of Jo", l = [num for num in range(1,14)]):
+        self.s = s
+        self.l = l        
 
+    def minimum_using_for(self):
+        "a class variable can be accessed by using class or object name"
+        smallest = ProbablyRepeatedPrograms.enteredl[-3] #randomly assign any item of list
+        for item in prp.enteredl:#class variable accesed by object name
+            if item < smallest:
+                smallest = item
+        return smallest            
+    def minimum_using_while(self):
+        "a good example of replacing for with while oct 3"
+        smallest, i = prp.enteredl[-1],0 #accessing class variable by object name
+        while (i!=len(ProbablyRepeatedPrograms.enteredl)-1):
+            if ProbablyRepeatedPrograms.enteredl[i]<smallest:
+                smallest = prp.enteredl[i]
+            i+=1            
+        return smallest
+    def minimumoflist_user_input(self, current=[]): #can't assign current = self.enteredl
+        "pass a named(keyworded) argument in definition and then user can input a new list"
+        current = prp.enteredl #STUCK AT HOW TO ALLOW BOTH INSTANCE VARIABLE AND USER INPUT
+        smallest = current[-3] #randomly assign any item of list
+        for item in current:
+            if item < smallest:
+                smallest = item
+        return smallest
+    def concurrent_modification(self):
+        "oui, cest concurrent modification"
+        for item in self.l:
+            self.l.remove(item)
+        return self.l #[2, 4, 6, 8, 10, 12]
+    def still_concurrent_modification(self):
+        "dont let while loop fool you into it not being concurrent modification"
+        while (len(self.l)!=0):
+            for item in self.l:
+                self.l.remove(item)
+                print(self.l)
+        return self.l
+    def sort_a_list(self,enteredl=[-25,71,29,15,312,91,91,13,29,9,17,28,92,21]):
+        "works for list with duplicate numbers"
+        lsorted = [min(enteredl)]
+        for i in range(len(enteredl)):
+            try:
+                enteredl.remove(lsorted[-1])
+                lsorted.append(min(enteredl))
+            except:
+                pass
+        return lsorted, enteredl
+    def sortlist_using_no_built_infunction(self):#INCOMPLETE
+        lsorted = [self.minimumoflist_user_input()]
+        myl = self.enteredl.copy()
+        while (len(myl)!= 0):
+            myl.remove(lsorted[-1])
+            lsorted.append(self.minimum_using_while(myl))
+                              
+
+        #return id(myl), id(self.enteredl)
+    def sortlist_using_recursion(self):
+        pass
     
+
+prp = ProbablyRepeatedPrograms()
+    
+class Random:
+    "methods to access class variable from instance"
+    class_var = "mince alors 2"
+    def __init__(self,v=[num for num in range(10)]):
+        self.v = v
+    def instance_fun(self):
+        return self.class_var + "star without light" #using self
+    def class_var_from_instance(self):
+        return type(self).class_var + " "+ "jeux d'influence" #using type(self)
+    def method3(self):
+        "or you can use full class name"
+        return Random.class_var + " " + "they dont age in a beautiful mind"
+
+r = Random()
