@@ -1,17 +1,48 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 # an empty hash means starting of a new snippet
+#nov 5
+def fun(arr:list):
+    gen = (name for name in arr if len(arr)>=3)
+    arr = ["Peter", "mary"]
+    return list(gen)
+arr = ["Joe","Peter", "Paul"]
+print(fun(arr)) #gen checks
+#nov 5
+def fun(x):
+    y = x*20
+    x = "a"
+    return y
+print(fun(2))
+#
+def fun(x):
+    def inner(x):
+        y = x*20
+    x = "a"
+    return y #y is not defined
+print(fun(2))
+#nov 5
+##x = ["ab", "cd"]
+##for i in x:
+##    i.upper()
+##print(x) #["ab","cd"] as strings are not modified by the iterator 
+#nov 4
+#print(2^3) #output is 1, caret character python output 1 2=0010, 3=0011 2 XOR of 3 = 1
+##set1 = {45,23,56,98,75,12,30}
+##set2={44,12,33,30,23}
+##print(set1^set2) a-union-b minus a-intersection-b ie non common elements of a and b
+#
 #nov 3
 #l = [1,2, ,4] #invalid syntax 
 #print(l)
 #print(" ".join(str(item) for item in l))
 #
 #nov 1
-l1, l2 = [], []
-d1, d2 = {},{}
-s1, s2 = set(), set()
-print([]==[], id(l1), id(l2), l1==l2) #True 139746680490056 139746680489544 True
-print({}=={}, id(d1), id(d2), s1==s2) #True 139746674370816 139746665829288 True
-print(set()==set(), id(s1), id(s2), s1==s2) #True 139746678954920 139746665687752 True
+##l1, l2 = [], []
+##d1, d2 = {},{}
+##s1, s2 = set(), set()
+##print([]==[], id(l1), id(l2), l1==l2) #True 139746680490056 139746680489544 True
+##print({}=={}, id(d1), id(d2), s1==s2) #True 139746674370816 139746665829288 True
+##print(set()==set(), id(s1), id(s2), s1==s2) #True 139746678954920 139746665687752 True
 #oct 15
 ##t = (1,2,[3,4],(5),{6,7,8})
 ##print(t[3]) #5, not the tuple (5)

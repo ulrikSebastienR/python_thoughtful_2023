@@ -22,3 +22,4 @@ for item in l:
 
 if root(35):
     print("d") # d is not printed as root(35) tests false
+scope resolution pour une class
