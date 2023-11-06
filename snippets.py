@@ -6,19 +6,20 @@ def fun(arr:list):
     arr = ["Peter", "mary"]
     return list(gen)
 arr = ["Joe","Peter", "Paul"]
-print(fun(arr)) #gen checks
+print(fun(arr)) #[], in the return statement gen is invoked again which bypasses the arr that was presented as an argument to the function
 #nov 5
 def fun(x):
     y = x*20
     x = "a"
-    return y
+    return y #here y = 40 as there is nothing modifying the already computed output y 
 print(fun(2))
 #
 def fun(x):
     def inner(x):
         y = x*20
+        return y
     x = "a"
-    return y #y is not defined
+    return (inner(x)+x),len(inner(x)+x) #y is not defined
 print(fun(2))
 #nov 5
 ##x = ["ab", "cd"]
