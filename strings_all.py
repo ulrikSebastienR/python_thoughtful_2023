@@ -1,9 +1,38 @@
 #from browse_file_dirs import FileOperations
 
 #reverse a string, you can reverse a list using l.reverse()
+
 s = "madamoiselle"
 alphabets = [char for char in "abcdefghijklmnopqrstuvwxyz"]
 numbers = [number for number in range(1,27)]
+
+class StringRevisionNov6:
+    "revision attempts"
+    import string
+    alphas = string.ascii_lowercase
+    palindrome_string = "madamoiselle"
+    anagram1 = "la mer"
+    anagram2 = "ram le"
+    subset = "la mer"
+    superset = "Bob Marley"
+    def __init__(self,s="jeux d influence"):
+        self.s = s
+    def palindrome(self):
+        rev = "".join(char for char in list(reversed(type(self).palindrome_string)))
+        if rev == type(self).palindrome_string:
+            return f"{type(self).palindrome_string} is palindrome" #True for palindrome_string = "madam"
+        else:
+            return "BSJ" #True for palindrome_string = "madamoiselle"
+    def anagram(self): #sorted works on set as well, as sorted is a built-in function 
+        if sorted(set(type(self).anagram1)) == sorted(set(type(self).anagram2)):
+            return f"{type(self).anagram1} and {type(self).anagram2} are anagams"
+        else:
+            return "are not anagrams"
+    def sub_or_superset(self): #INCOMPLETE
+        "check if a string is subset or superset of another string"
+        pass
+
+srn6 = StringRevisionNov6()
 
 class StringOperations:
     "various operations on string"
@@ -271,6 +300,7 @@ lsnr = LongestSubstringWithNoRepetitions()
 ##for i in range(1,len(s)+1):
 ##    rev.append(s[-i])
 ###anagram strings
+
 
 
 
