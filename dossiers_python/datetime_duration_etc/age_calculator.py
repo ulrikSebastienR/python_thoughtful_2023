@@ -9,11 +9,6 @@ import datetime
 
 
 
-#dob = datetime.date(1982, 6, 29) #40y11m22d on 20.6 answer exact by both
-#dob = datetime.date(1984, 2, 9) # 39y4m11d on 20.6 answer is exact by method 2
-#dob = datetime.date(1951, 1, 2) # 72y5m18d on 20.6 answer is exact by both 
-#dob = datetime.date(1947, 7, 1) # 75y11m19d on 20.6 answer is exact by method 2
-#dob = datetime.date(2017, 1, 17) # 6y5m3d on 20.6 answer is exact by method 2
 dob = datetime.date(2019, 5, 5) # 4y1m15d on 20.6 answer is exact by method 2
 toutdesuite = datetime.datetime.date(datetime.datetime.today())
 
