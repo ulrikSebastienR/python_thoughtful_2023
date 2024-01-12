@@ -6,6 +6,24 @@ l = [[].append(char) for char in "abcde"] #wont work as [] is a none type
 l1 = [[char] for char in "abcde"] #works
 l2 = [[0]]*5 #works however all sublists would point to the same object or false lists
 l3 = [[]] *5 #works however python treats all these blank lists differently IS PENDING
+
+import random
+class ListOperationsNov2023:
+    #import random as random #can not import inside a class
+    class_list = [random.randrange(1,49,1) for i in range(6)]
+    def __init__(self, integers=[num for num in range(10)]):
+        self.integers = integers
+    def unshift_comme_JavaScript(self):
+        "add at index 0 ['like',0,1,2,3] and shift remaining items to one right, equivalent of unshift in javascript"
+        pass
+    def shift_comme_JavaScript(self):
+        "add at index [-1] [0,1,2,3, 'like']"
+        pass
+
+lon = ListOperationsNov2023()    
+        
+
+
 do = [[number for number in range(19,88,8)],[number for number in range(10) if number%2!=0],[number for number in range(33,55) if number%3==0],[number for number in range(10,20) if number%2==0]]
 merged_do = [19, 27, 35, 43, 51, 59, 67, 75, 83, 1, 3, 5, 7, 9, 33, 36, 39, 42, 45, 48, 51, 54, 10, 12, 14, 16, 18]#could not do it with list comprehension
 list_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 6,5,4,3,2,1]
@@ -223,6 +241,8 @@ class ListOperations:
                 except:
                     pass
         return merged, merged1, automatic
+    def shift_comme_Javascript(self):
+        pass
 lo = ListOperations()
 
 class RemoveEmptySublists:

@@ -1,5 +1,13 @@
 #do combinations by removing duplicates from permutations#longest closing parentheses#merge intervals#group patterns in a number such as 123456123456123456123456123456
 # an empty hash means starting of a new snippet
+#nov 7
+def f(x):
+    return x+1
+def g(x):
+    return x*2
+#nov 8
+##ello = "hello"
+##print(ello[-1:]) #o
 #nov 5
 ##def fun(arr:list):
 ##    gen = (name for name in arr if len(arr)>=3)

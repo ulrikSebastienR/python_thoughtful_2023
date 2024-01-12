@@ -30,8 +30,13 @@ class StringRevisionNov6:
             return "are not anagrams"
     def sub_or_superset(self): #INCOMPLETE
         "check if a string is subset or superset of another string"
-        pass
-
+        #return sorted(type(self).subset), sorted(type(self).superset) #([' ', 'a', 'e', 'l', 'm', 'r'], [' ', 'B', 'M', 'a', 'b', 'e', 'l', 'o', 'r', 'y']) #yet to do using sorted
+        smaller = type(self).subset if len(type(self).subset) < len(type(self).superset) else type(self).superset
+        larger = type(self).subset if len(type(self).subset) > len(type(self).superset) else type(self).superset
+        return larger
+        #for item in smaller:
+         #   if item not in 
+        
 srn6 = StringRevisionNov6()
 
 class StringOperations:
