@@ -1,0 +1,12 @@
+check which files are taking space
+du -h | sort -h > size.txt then head -100 size.txt
+
+search for a package apt search packagename
+
+size taken by an application before or after download:
+apt show palemoon | grep Size or aptitude install -sy firefox
+
+
+check if a package/file: dpkg -s package_name/file name
+
+https://ostechnix.com/remove-unnecessary-configuration-files-on-debian-based-systems/

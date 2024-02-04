@@ -1,0 +1,10 @@
+after login
+sct 3000
+xrandr --output VGA1 --brightness 0.82
+ 
+Monitor off:
+xset dpms force off  
+
+logout
+sudo pkill -u username
+
