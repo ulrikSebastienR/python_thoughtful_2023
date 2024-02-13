@@ -54,3 +54,28 @@ def iffun2(x): #nested function and true false in if fun:
 l = []
 for x in range(10):
     l.append(iffun2(x)) #[0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+
+#NEW FEB 13, 2024
+#& AND | FOR SETS
+#COMPARE TWO LISTS/TUPLES
+
+l1, l2, l3 = [num for num in range(5)], [item for item in range(1,6)], [i for i in range(5)]
+#l1 and l3 are equal but not l2
+print(l1==l2) #False #method 1 : equality o
+print(l1==l3) #True
+from collections import Counter
+print(Counter(l1)==Counter(l2)) #False #METHOD 2 : COMPARE COUNTERS
+print(Counter(l1)==Counter(l3)) #True
+res = [item for item in l1+l3 if item not in l1 or item not in l3] #USING LIST COMPREHENSION
+res1 = [item for item in l1+l2 if item not in l1 or item not in l2] #lists are equal if res = [] or unequal if res != []
+
+#SET INTERSECTION AND SET UNION
+print(set(l1) & set(l2))
+print(set(l1) | set(l2))
+
+#REVISION FEB 13, 2024
+#EXPONENT WITHOUT USING INBUILT FUNCTION
+
+
+
+
